@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "LoginUIViewController.h"
+#import "CameraViewController.h"
 
 @implementation AppDelegate
 
@@ -20,18 +21,20 @@
     // Load the FBProfilePictureView
     // You can find more information about why you need to add this line of code in our troubleshooting guide
     // https://developers.facebook.com/docs/ios/troubleshooting#objc
-    [FBLoginView class];
-    [FBProfilePictureView class];
+    //[FBLoginView class];
+    //[FBProfilePictureView class];
     
     // Create a LoginUIViewController instance where the login button will be
-    LoginUIViewController *loginUIViewController = [[LoginUIViewController alloc] init];
+    //LoginUIViewController *loginUIViewController = [[LoginUIViewController alloc] init];
+    
+    CameraViewController *camera = [[CameraViewController alloc] init];
     
     // Set loginUIViewController as root view controller
-    [[self window] setRootViewController:loginUIViewController];
+    [[self window] setRootViewController:camera];
     
     
     
-    self.window.backgroundColor = [UIColor whiteColor];
+    //self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
     return YES;
 }

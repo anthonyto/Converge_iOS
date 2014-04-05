@@ -43,6 +43,8 @@
         // Add the button to the view
         [self.view addSubview:loginView];
         
+        //UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        
     }
     return self;
 }
