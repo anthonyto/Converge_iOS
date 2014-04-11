@@ -8,15 +8,13 @@
 
 #import <FacebookSDK/FacebookSDK.h>
 #import <UIKit/UIKit.h>
+#import "userInfo.h"
+#import "HomeViewController.h"
 
 @interface LoginUIViewController : UIViewController<FBLoginViewDelegate>
-{
-    IBOutlet UILabel *nameLabel;
-    IBOutlet UILabel *statusLabel;
-    IBOutlet FBProfilePictureView *profilePictureView;
 
+@property (strong, nonatomic) IBOutlet FBLoginView *FBloginButton;
 
-    
-}
 
 @end
+

@@ -15,7 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
     // Load the FBProfilePictureView
@@ -24,18 +24,9 @@
     //[FBLoginView class];
     //[FBProfilePictureView class];
     
-    // Create a LoginUIViewController instance where the login button will be
-    //LoginUIViewController *loginUIViewController = [[LoginUIViewController alloc] init];
-    
-    CameraViewController *camera = [[CameraViewController alloc] init];
-    
-    // Set loginUIViewController as root view controller
-    [[self window] setRootViewController:camera];
-    
-    
-    
-    //self.window.backgroundColor = [UIColor blackColor];
-    [self.window makeKeyAndVisible];
+     //self.window.backgroundColor = [UIColor whiteColor];
+    //[self.window makeKeyAndVisible];
+    [FBLoginView class];
     return YES;
 }
 
