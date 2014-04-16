@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31B35F5D18FE438D00C6B4A0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B35F5C18FE438D00C6B4A0 /* FacebookSDK.framework */; };
 		C9033C1118F783B000113DDE /* userInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C9033C1018F783B000113DDE /* userInfo.m */; };
 		C9033C1418F79FA100113DDE /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9033C1318F79FA100113DDE /* CreateViewController.m */; };
 		C93688C918E8B51900E165E5 /* LoginUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93688C818E8B51900E165E5 /* LoginUIViewController.m */; };
@@ -25,7 +26,6 @@
 		C9B80E7618E23C01004F236E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9B80E7418E23C01004F236E /* InfoPlist.strings */; };
 		C9B80E7818E23C01004F236E /* ConvergeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B80E7718E23C01004F236E /* ConvergeTests.m */; };
 		C9E348B118EDCB000074CC30 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E348B018EDCB000074CC30 /* CameraViewController.m */; };
-		C9E816F618E35AAC00A71C01 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E816F518E35AAC00A71C01 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31B35F5C18FE438D00C6B4A0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		C9033C0F18F783B000113DDE /* userInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userInfo.h; sourceTree = "<group>"; };
 		C9033C1018F783B000113DDE /* userInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userInfo.m; sourceTree = "<group>"; };
 		C9033C1218F79FA100113DDE /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		C9B80E7718E23C01004F236E /* ConvergeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConvergeTests.m; sourceTree = "<group>"; };
 		C9E348AF18EDCB000074CC30 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		C9E348B018EDCB000074CC30 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
-		C9E816F518E35AAC00A71C01 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9B80E4F18E23BFF004F236E /* CoreGraphics.framework in Frameworks */,
-				C9E816F618E35AAC00A71C01 /* FacebookSDK.framework in Frameworks */,
+				31B35F5D18FE438D00C6B4A0 /* FacebookSDK.framework in Frameworks */,
 				C9B80E5118E23BFF004F236E /* UIKit.framework in Frameworks */,
 				C9B80E4D18E23BFF004F236E /* Foundation.framework in Frameworks */,
 			);
@@ -116,7 +116,7 @@
 		C9B80E4B18E23BFF004F236E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C9E816F518E35AAC00A71C01 /* FacebookSDK.framework */,
+				31B35F5C18FE438D00C6B4A0 /* FacebookSDK.framework */,
 				C9B80E4C18E23BFF004F236E /* Foundation.framework */,
 				C9B80E4E18E23BFF004F236E /* CoreGraphics.framework */,
 				C9B80E5018E23BFF004F236E /* UIKit.framework */,
@@ -409,6 +409,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/afs/cs.wisc.edu/u/v/y/vyshak/Desktop,
+					/Users/Patron/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Converge/Converge-Prefix.pch";
@@ -426,6 +428,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/afs/cs.wisc.edu/u/v/y/vyshak/Desktop,
+					/Users/Patron/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Converge/Converge-Prefix.pch";
