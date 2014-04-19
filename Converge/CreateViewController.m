@@ -10,6 +10,11 @@
 
 @interface CreateViewController (){
     NSData * data;
+    BOOL eventStartSelected;
+    BOOL eventEndSelected;
+    UIToolbar * dateInputDone;
+    UIDatePicker * dateInput;
+    UIColor * iosGray;
 }
 
 @end
@@ -27,10 +32,51 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
+    
+    iosGray = [UIColor colorWithRed:212/255.0 green:212/255.0 blue:212/255.0 alpha:1];
+    
+    eventStartSelected = false;
+    eventEndSelected = false;
+    
+    dateInput = [[UIDatePicker alloc] init];
+    [dateInput setDatePickerMode:UIDatePickerModeDateAndTime];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(exitDateInput:)];
+    UIBarButtonItem *paddingLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *paddingRight = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    dateInputDone = [[UIToolbar alloc] initWithFrame:CGRectMake(10.0, 0.0, 310.0, 40.0)];
+    [dateInputDone setItems:@[paddingLeft, doneButton, paddingRight]];
+    
+    self.eventStart.inputView = dateInput;
+    self.eventStart.inputAccessoryView = dateInputDone;
+    self.eventEnd.inputView = dateInput;
+    self.eventEnd.inputAccessoryView = dateInputDone;
+	
+    self.eventDescription.layer.borderColor = [iosGray CGColor];
+    self.eventDescription.layer.borderWidth = 1.0;
+    self.eventDescription.layer.cornerRadius = 8;
+    self.eventDescription.inputAccessoryView = dateInputDone;
+    
     self.eventTitle.delegate = self;
     self.eventLocation.delegate = self;
-	// Do any additional setup after loading the view.
+    self.eventDescription.delegate = self;
+}
+
+-(void) exitDateInput:(id) sender{
+    if(eventStartSelected){
+        [self.eventStart setText:[NSDateFormatter localizedStringFromDate:dateInput.date
+            dateStyle:NSDateFormatterShortStyle
+            timeStyle:NSDateFormatterShortStyle]];
+        [self.eventStart resignFirstResponder];
+    } else if (eventEndSelected){
+        [self.eventEnd setText:[NSDateFormatter localizedStringFromDate:dateInput.date
+            dateStyle:NSDateFormatterShortStyle
+            timeStyle:NSDateFormatterShortStyle]];
+        [self.eventEnd resignFirstResponder];
+    } else {
+        [self.eventDescription resignFirstResponder];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,14 +95,14 @@
 }
 
 - (IBAction)createButton:(id)sender {
-
+    
+ 
     NSString * et = self.eventTitle.text;
     NSString * el = self.eventLocation.text;
-    NSString * ed = [NSDateFormatter localizedStringFromDate:self.eventDate.date
-                                                          dateStyle:NSDateFormatterShortStyle
-                                                          timeStyle:NSDateFormatterFullStyle];
-    //NSString * queryString = [NSString stringWithFormat:@"name=%@&location=%@&start_time=%@&end_time=%@", et, el, ed, ed ];
-    NSString * queryString = @"event[name]=testasdale&event[location]=tomorrow&event[start_time]=z&event[end_time]=b&event[description]=fuck";
+    NSString * es = self.eventStart.text;
+    NSString * ee = self.eventEnd.text;
+    NSString * ed = self.eventDescription.text; //NEED TO ESCAPE CHARACTERS
+    NSString * queryString = [NSString stringWithFormat: @"event[name]=%@&event[location]=%@&event[start_time]=%@&event[end_time]=%@&event[description]=%@", et, el, es, ee, ed ];
     if([self isValidEvent]){
         data = [queryString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     } else {
@@ -100,4 +146,32 @@
     [responseText release];*/
 }
 
+- (IBAction)eventStartSelection:(id)sender {
+    eventStartSelected = true;
+}
+
+- (IBAction)eventStartSelectionEnd:(id)sender {
+    eventStartSelected = false;
+}
+- (IBAction)eventEndSelection:(id)sender {
+    eventEndSelected = true;
+}
+
+- (IBAction)eventEndSelectionEnd:(id)sender {
+    eventEndSelected = false;
+}
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if ([textView.text isEqualToString:@"Description"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor]; //optional
+    }
+    [textView becomeFirstResponder];
+}
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"Description";
+        textView.textColor = iosGray; //optional
+    }
+    [textView resignFirstResponder];
+}
 @end

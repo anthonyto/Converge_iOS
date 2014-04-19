@@ -9,9 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "userInfo.h"
 
-@interface CreateViewController : UIViewController<UITextFieldDelegate>
+@interface CreateViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *eventTitle;
 @property (strong, nonatomic) IBOutlet UITextField *eventLocation;
-@property (strong, nonatomic) IBOutlet UIDatePicker *eventDate;
 - (IBAction)createButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *eventStart;
+- (IBAction)eventStartSelection:(id)sender;
+- (IBAction)eventStartSelectionEnd:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *eventEnd;
+- (IBAction)eventEndSelection:(id)sender;
+- (IBAction)eventEndSelectionEnd:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *eventDescription;
+
+
+
 @end
