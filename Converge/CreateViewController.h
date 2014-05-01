@@ -21,6 +21,6 @@
 - (IBAction)eventEndSelectionEnd:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *eventDescription;
 
-
+- (void)FBLogout:(UIButton *) sender;
 
 @end

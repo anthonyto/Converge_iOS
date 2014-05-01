@@ -7,6 +7,8 @@
 //
 
 #import "CreateViewController.h"
+#import "footerView.h"
+#import "LoginUIViewController.h"
 
 @interface CreateViewController (){
     NSData * data;
@@ -15,6 +17,7 @@
     UIToolbar * dateInputDone;
     UIDatePicker * dateInput;
     UIColor * iosGray;
+    footerView *footie;
 }
 
 @end
@@ -61,6 +64,13 @@
     self.eventTitle.delegate = self;
     self.eventLocation.delegate = self;
     self.eventDescription.delegate = self;
+    
+    footie = [[footerView alloc] initWithFrame:CGRectMake(20, 515, 275, 50)];
+    footie.loginName = [[userInfo userInfo] getInfo].name;
+    [self.view addSubview:footie];
+    [footie.logout addTarget:self action:@selector(FBLogout:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
 }
 
 -(void) exitDateInput:(id) sender{
@@ -86,6 +96,14 @@
 }
 
 -(BOOL) isValidEvent{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    if([[formatter dateFromString:self.eventStart.text] compare:[formatter dateFromString:self.eventEnd.text]] == NSOrderedDescending){
+        
+        return NO;
+    }
+        
     return YES;
 }
 
@@ -106,7 +124,13 @@
     if([self isValidEvent]){
         data = [queryString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     } else {
-        //error
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Event times invalid."
+                                                        message:@"Your start time must be before the end time."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
     }
     
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[data length]];
@@ -173,5 +197,14 @@
         textView.textColor = iosGray; //optional
     }
     [textView resignFirstResponder];
+}
+
+- (void)FBLogout:(UIButton *) sender{
+    if(FBSession.activeSession.isOpen){
+        [FBSession.activeSession closeAndClearTokenInformation];
+        LoginUIViewController *login = [self.storyboard instantiateViewControllerWithIdentifier:@"loginUIView"];
+        [self presentViewController:login animated:YES completion:nil];
+       
+    }
 }
 @end
