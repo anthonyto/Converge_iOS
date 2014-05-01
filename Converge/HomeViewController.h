@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "userInfo.h"
+#import "Event.h"
+#import "EventCell.h"
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 - (IBAction)createButton:(id)sender;
+- (IBAction)refreshEvents:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *eventsTable;
 
 @end

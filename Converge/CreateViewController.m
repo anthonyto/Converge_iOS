@@ -94,6 +94,7 @@
     return YES;
 }
 
+
 - (IBAction)createButton:(id)sender {
     
  
@@ -103,6 +104,8 @@
     NSString * ee = self.eventEnd.text;
     NSString * ed = self.eventDescription.text; //NEED TO ESCAPE CHARACTERS
     NSString * queryString = [NSString stringWithFormat: @"event[name]=%@&event[location]=%@&event[start_time]=%@&event[end_time]=%@&event[description]=%@", et, el, es, ee, ed ];
+    
+    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)queryString,NULL,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 ));
     if([self isValidEvent]){
         data = [queryString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     } else {
@@ -112,7 +115,7 @@
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[data length]];
     
     
-    NSURL *url = [[NSURL alloc] initWithString:@"http://22271f7b.ngrok.com/api/events"];
+    NSURL *url = [[NSURL alloc] initWithString:@"http://converge-rails.herokuapp.com/api/events"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
