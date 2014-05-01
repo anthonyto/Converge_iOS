@@ -11,5 +11,9 @@
 @interface EventCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *startLabel;
+@property (weak, nonatomic) IBOutlet UIButton *acceptButton;
+- (IBAction)acceptTouchUp:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *declineButton;
+- (IBAction)declineTouchUp:(id)sender;
 
 @end

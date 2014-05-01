@@ -26,4 +26,8 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)acceptTouchUp:(id)sender {
+}
+- (IBAction)declineTouchUp:(id)sender {
+}
 @end
