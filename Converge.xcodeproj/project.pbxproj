@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B318C1221911B2770032BC38 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B80E4C18E23BFF004F236E /* FacebookSDK.framework */; };
+		B351CBA519186D5600226088 /* footerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B351CBA419186D5600226088 /* footerView.m */; };
 		B3ADD79F1911D248009B6999 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B3ADD79E1911D248009B6999 /* Event.m */; };
 		B3ADD7A21911E4D3009B6999 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3ADD7A11911E4D3009B6999 /* EventCell.m */; };
 		C9033C1118F783B000113DDE /* userInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C9033C1018F783B000113DDE /* userInfo.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B351CBA319186D5600226088 /* footerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = footerView.h; sourceTree = "<group>"; };
+		B351CBA419186D5600226088 /* footerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = footerView.m; sourceTree = "<group>"; };
 		B3ADD79D1911D248009B6999 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
 		B3ADD79E1911D248009B6999 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
 		B3ADD7A01911E4D3009B6999 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 		C9B80E5218E23BFF004F236E /* Converge */ = {
 			isa = PBXGroup;
 			children = (
+				B351CBA319186D5600226088 /* footerView.h */,
+				B351CBA419186D5600226088 /* footerView.m */,
 				B3ADD79D1911D248009B6999 /* Event.h */,
 				B3ADD79E1911D248009B6999 /* Event.m */,
 				C9B80E5B18E23C00004F236E /* AppDelegate.h */,
@@ -280,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C93688C918E8B51900E165E5 /* LoginUIViewController.m in Sources */,
+				B351CBA519186D5600226088 /* footerView.m in Sources */,
 				C9E348B118EDCB000074CC30 /* CameraViewController.m in Sources */,
 				C9B80E5D18E23C00004F236E /* AppDelegate.m in Sources */,
 				C9033C1418F79FA100113DDE /* CreateViewController.m in Sources */,
