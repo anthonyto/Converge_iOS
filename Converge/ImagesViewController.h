@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ImagesViewController : UIViewController
+{
+	
+}
+
+@property (strong, nonatomic) NSMutableArray *pictures;
+
 
 @end

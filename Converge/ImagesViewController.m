@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Vyshak Nagappala. All rights reserved.
 //
 
+#import "Picture.h"
 #import "ImagesViewController.h"
 
 @interface ImagesViewController (){
