@@ -124,6 +124,15 @@
     NSString * queryString = [NSString stringWithFormat: @"event[name]=%@&event[location]=%@&event[start_time]=%@&event[end_time]=%@&event[description]=%@", et, el, es, ee, ed ];
     
     NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)queryString,NULL,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 ));
+    if(self.eventStart.text.length==0 || self.eventEnd.text.length==0 || self.eventDescription.text.length==0 || self.eventLocation.text.length==0 || self.eventTitle.text.length==0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"One or more fields are empty."
+                                                        message:@"Please enter all fields."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+    }
     if([self isValidEvent]){
         data = [queryString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     } else {

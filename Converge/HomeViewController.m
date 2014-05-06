@@ -7,12 +7,15 @@
 //
 
 #import "HomeViewController.h"
+#import "footerView.h"
+#import "LoginUIViewController.h"
 
 @interface HomeViewController (){
     NSMutableData * eventList;
     NSMutableArray * events;
     UIActivityIndicatorView * spin;
     NSString * font;
+    footerView *footie;
 }
 
 @end
@@ -57,6 +60,10 @@
     spin.hidesWhenStopped = YES;
     [self.view addSubview:spin];
     [self getEventsJSON];
+    footie = [[footerView alloc] initWithFrame:CGRectMake(20, 530, 275, 50)];
+    footie.loginName = [[userInfo userInfo] getInfo].name;
+    [self.view addSubview:footie];
+    [footie.logout addTarget:self action:@selector(FBLogout:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) getEventsJSON {
@@ -154,4 +161,14 @@
     [alert show];
 
 }
+
+- (void)FBLogout:(UIButton *) sender{
+    if(FBSession.activeSession.isOpen){
+        [FBSession.activeSession closeAndClearTokenInformation];
+        LoginUIViewController *login = [self.storyboard instantiateViewControllerWithIdentifier:@"loginUIView"];
+        [self presentViewController:login animated:YES completion:nil];
+        
+    }
+}
+
 @end
