@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		04C3133C19182C3D004FFC61 /* ImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3133B19182C3D004FFC61 /* ImagesViewController.m */; };
 		04C3133F19183A57004FFC61 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3133E19183A57004FFC61 /* Picture.m */; };
+		31AC6FB11918CFA400CDEC0F /* Raleway-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31AC6FAE1918CFA400CDEC0F /* Raleway-Light.otf */; };
+		31AC6FB21918CFA400CDEC0F /* Raleway-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31AC6FAF1918CFA400CDEC0F /* Raleway-Medium.otf */; };
+		31AC6FB31918CFA400CDEC0F /* Raleway-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31AC6FB01918CFA400CDEC0F /* Raleway-Regular.otf */; };
 		B318C1221911B2770032BC38 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B80E4C18E23BFF004F236E /* FacebookSDK.framework */; };
 		B351CBA519186D5600226088 /* footerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B351CBA419186D5600226088 /* footerView.m */; };
 		B3ADD79F1911D248009B6999 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B3ADD79E1911D248009B6999 /* Event.m */; };
@@ -47,6 +50,9 @@
 		04C3133B19182C3D004FFC61 /* ImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesViewController.m; sourceTree = "<group>"; };
 		04C3133D19183A57004FFC61 /* Picture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picture.h; sourceTree = "<group>"; };
 		04C3133E19183A57004FFC61 /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picture.m; sourceTree = "<group>"; };
+		31AC6FAE1918CFA400CDEC0F /* Raleway-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.otf"; sourceTree = "<group>"; };
+		31AC6FAF1918CFA400CDEC0F /* Raleway-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.otf"; sourceTree = "<group>"; };
+		31AC6FB01918CFA400CDEC0F /* Raleway-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.otf"; sourceTree = "<group>"; };
 		B351CBA319186D5600226088 /* footerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = footerView.h; sourceTree = "<group>"; };
 		B351CBA419186D5600226088 /* footerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = footerView.m; sourceTree = "<group>"; };
 		B3ADD79D1911D248009B6999 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
@@ -106,6 +112,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31AC6FA41918C86600CDEC0F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				31AC6FAE1918CFA400CDEC0F /* Raleway-Light.otf */,
+				31AC6FAF1918CFA400CDEC0F /* Raleway-Medium.otf */,
+				31AC6FB01918CFA400CDEC0F /* Raleway-Regular.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		C9B80E4018E23BFF004F236E = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +157,7 @@
 		C9B80E5218E23BFF004F236E /* Converge */ = {
 			isa = PBXGroup;
 			children = (
+				31AC6FA41918C86600CDEC0F /* Fonts */,
 				B351CBA319186D5600226088 /* footerView.h */,
 				B351CBA419186D5600226088 /* footerView.m */,
 				B3ADD79D1911D248009B6999 /* Event.h */,
@@ -273,8 +290,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31AC6FB11918CFA400CDEC0F /* Raleway-Light.otf in Resources */,
 				C9B80E6518E23C00004F236E /* Images.xcassets in Resources */,
 				C9B80E5718E23C00004F236E /* InfoPlist.strings in Resources */,
+				31AC6FB21918CFA400CDEC0F /* Raleway-Medium.otf in Resources */,
+				31AC6FB31918CFA400CDEC0F /* Raleway-Regular.otf in Resources */,
 				C9B80E6018E23C00004F236E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

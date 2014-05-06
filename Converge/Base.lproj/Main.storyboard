@@ -116,7 +116,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hgQ-fR-9M0">
-                                                    <rect key="frame" x="231" y="8" width="49" height="30"/>
+                                                    <rect key="frame" x="231" y="8" width="63" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Accept">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -126,7 +126,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5jz-BI-6to">
-                                                    <rect key="frame" x="229" y="37" width="51" height="30"/>
+                                                    <rect key="frame" x="229" y="37" width="65" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Decline">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,9 +151,11 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qNv-Zl-DI3">
-                                <rect key="frame" x="103" y="436" width="115" height="30"/>
+                                <rect key="frame" x="96" y="436" width="128" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Create Event">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -161,7 +163,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gzp-5A-SKs">
-                                <rect key="frame" x="120" y="81" width="80" height="80"/>
+                                <rect key="frame" x="120" y="75" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="refresh_button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -199,6 +201,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="createButton" destination="qNv-Zl-DI3" id="goM-Sf-q3n"/>
                         <outlet property="eventsTable" destination="nqs-K7-9VQ" id="abH-0O-u2J"/>
                         <segue destination="nUK-b3-qjs" kind="push" identifier="createSegue" id="IWs-ZO-gVH"/>
                     </connections>
@@ -318,7 +321,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" patternImage="96DCB05D-802E-467D-8CEE-80CE1CD74A99" colorSpace="pattern"/>
+                        <color key="backgroundColor" patternImage="40CF2C8D-EE91-41F1-9EAF-2FECB8CD5380" colorSpace="pattern"/>
                     </view>
                     <navigationItem key="navigationItem" id="q2N-bi-Yus"/>
                     <connections>
@@ -331,7 +334,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="96DCB05D-802E-467D-8CEE-80CE1CD74A99" width="256" height="256">
+        <image name="40CF2C8D-EE91-41F1-9EAF-2FECB8CD5380" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

@@ -15,6 +15,7 @@
 @interface HomeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 - (IBAction)createButton:(id)sender;
 - (IBAction)refreshEvents:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *createButton;
 @property (weak, nonatomic) IBOutlet UITableView *eventsTable;
 
 @end

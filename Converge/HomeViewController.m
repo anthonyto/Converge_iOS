@@ -12,6 +12,7 @@
     NSMutableData * eventList;
     NSMutableArray * events;
     UIActivityIndicatorView * spin;
+    NSString * font;
 }
 
 @end
@@ -30,13 +31,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    font = @"Raleway-Light";
     eventList = [[NSMutableData alloc] init];
     events = [[NSMutableArray alloc] init];
     // begin getting data from the server
     self.eventsTable.layer.cornerRadius = 10;
     self.eventsTable.contentInset = UIEdgeInsetsZero;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
+    
+    self.createButton.titleLabel.font = [UIFont fontWithName:font size:self.createButton.titleLabel.font.pointSize];
+    
+    NSDictionary * navSettings = @{
+                                   UITextAttributeFont: [UIFont fontWithName:@"Raleway-Light" size:24.0],
+                                   UITextAttributeTextColor: [UIColor whiteColor]
+    };
+    
+    self.navigationController.navigationBar.titleTextAttributes = navSettings;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
@@ -94,6 +104,10 @@
     }
     cell.titleLabel.text = [NSString stringWithFormat:@"%@", ((Event *)[events objectAtIndex:indexPath.row]).name];
     cell.startLabel.text = [NSString stringWithFormat:@"%@", ((Event *)[events objectAtIndex:indexPath.row]).start];
+    cell.titleLabel.font = [UIFont fontWithName:font size:cell.titleLabel.font.pointSize];
+    cell.startLabel.font = [UIFont fontWithName:font size:cell.startLabel.font.pointSize];
+    cell.acceptButton.titleLabel.font = [UIFont fontWithName:font size:15.0];
+    cell.declineButton.titleLabel.font = [UIFont fontWithName:font size:15.0];
     return cell;
 }
 
