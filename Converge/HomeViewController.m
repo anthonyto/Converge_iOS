@@ -11,6 +11,7 @@
 @interface HomeViewController (){
     NSMutableData * eventList;
     NSMutableArray * events;
+    UIActivityIndicatorView * spin;
 }
 
 @end
@@ -40,10 +41,16 @@
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
     self.view.backgroundColor = [UIColor colorWithRed:90/255.0 green:194/255.0 blue:215/255.0 alpha:1];
+    spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [spin setColor: [UIColor grayColor]];
+    spin.center = CGPointMake(160,240);
+    spin.hidesWhenStopped = YES;
+    [self.view addSubview:spin];
     [self getEventsJSON];
 }
 
 - (void) getEventsJSON {
+    [spin startAnimating];
     NSURL *url = [[NSURL alloc] initWithString:@"http://converge-rails.herokuapp.com/api/events"];
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
@@ -114,14 +121,23 @@
             currE.end = [info objectForKey:@"end_time"];
             currE.description = [info objectForKey:@"description"];
             [events addObject:currE];
-            NSLog(@"Event: %@", currE.name);
+            //NSLog(@"Event: %@", currE.name);
         }
     }
     [connection cancel];
+    [spin stopAnimating];
     [self.eventsTable reloadData];
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"Error During Connection: %@", [error description]);
+    //NSLog(@"Error During Connection: %@", [error description]);
+    [spin stopAnimating];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unable to Retrieve Events"
+                                                    message:@"Hit refresh to try again"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+
 }
 @end
