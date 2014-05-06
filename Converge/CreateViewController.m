@@ -36,7 +36,7 @@
     [super viewDidLoad];
     
     iosGray = [UIColor colorWithRed:212/255.0 green:212/255.0 blue:212/255.0 alpha:1];
-    
+    self.view.backgroundColor = [UIColor colorWithRed:90/255.0 green:194/255.0 blue:215/255.0 alpha:1];
     eventStartSelected = false;
     eventEndSelected = false;
     

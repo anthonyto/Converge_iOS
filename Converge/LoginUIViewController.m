@@ -64,6 +64,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithRed:90/255.0 green:194/255.0 blue:215/255.0 alpha:1];
     self.FBloginButton.readPermissions = @[@"basic_info"];
 	// Do any additional setup after loading the view.
 }

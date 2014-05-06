@@ -32,6 +32,12 @@
     eventList = [[NSMutableData alloc] init];
     events = [[NSMutableArray alloc] init];
     // begin getting data from the server
+    self.eventsTable.layer.cornerRadius = 10;
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    self.view.backgroundColor = [UIColor colorWithRed:90/255.0 green:194/255.0 blue:215/255.0 alpha:1];
     [self getEventsJSON];
 }
 

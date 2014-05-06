@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "userInfo.h"
 #import "Event.h"
 #import "EventCell.h"
