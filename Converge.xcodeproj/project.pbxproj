@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04C3133C19182C3D004FFC61 /* ImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3133B19182C3D004FFC61 /* ImagesViewController.m */; };
+		04C3133F19183A57004FFC61 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3133E19183A57004FFC61 /* Picture.m */; };
 		B318C1221911B2770032BC38 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B80E4C18E23BFF004F236E /* FacebookSDK.framework */; };
 		B351CBA519186D5600226088 /* footerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B351CBA419186D5600226088 /* footerView.m */; };
 		B3ADD79F1911D248009B6999 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B3ADD79E1911D248009B6999 /* Event.m */; };
@@ -43,6 +45,10 @@
 /* Begin PBXFileReference section */
 		B351CBA319186D5600226088 /* footerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = footerView.h; sourceTree = "<group>"; };
 		B351CBA419186D5600226088 /* footerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = footerView.m; sourceTree = "<group>"; };
+		04C3133A19182C3D004FFC61 /* ImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesViewController.h; sourceTree = "<group>"; };
+		04C3133B19182C3D004FFC61 /* ImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesViewController.m; sourceTree = "<group>"; };
+		04C3133D19183A57004FFC61 /* Picture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picture.h; sourceTree = "<group>"; };
+		04C3133E19183A57004FFC61 /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picture.m; sourceTree = "<group>"; };
 		B3ADD79D1911D248009B6999 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
 		B3ADD79E1911D248009B6999 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
 		B3ADD7A01911E4D3009B6999 /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
@@ -103,6 +109,8 @@
 		C9B80E4018E23BFF004F236E = {
 			isa = PBXGroup;
 			children = (
+				04C3133D19183A57004FFC61 /* Picture.h */,
+				04C3133E19183A57004FFC61 /* Picture.m */,
 				C9B80E5218E23BFF004F236E /* Converge */,
 				C9B80E7118E23C01004F236E /* ConvergeTests */,
 				C9B80E4B18E23BFF004F236E /* Frameworks */,
@@ -140,6 +148,8 @@
 				C9B80E5B18E23C00004F236E /* AppDelegate.h */,
 				C9B80E5C18E23C00004F236E /* AppDelegate.m */,
 				C9B80E5E18E23C00004F236E /* Main.storyboard */,
+				04C3133A19182C3D004FFC61 /* ImagesViewController.h */,
+				04C3133B19182C3D004FFC61 /* ImagesViewController.m */,
 				B3ADD7A01911E4D3009B6999 /* EventCell.h */,
 				B3ADD7A11911E4D3009B6999 /* EventCell.m */,
 				C93688C718E8B51900E165E5 /* LoginUIViewController.h */,
@@ -289,8 +299,10 @@
 				C9E348B118EDCB000074CC30 /* CameraViewController.m in Sources */,
 				C9B80E5D18E23C00004F236E /* AppDelegate.m in Sources */,
 				C9033C1418F79FA100113DDE /* CreateViewController.m in Sources */,
+				04C3133F19183A57004FFC61 /* Picture.m in Sources */,
 				B3ADD79F1911D248009B6999 /* Event.m in Sources */,
 				C98BF48D18F769F100149F03 /* HomeViewController.m in Sources */,
+				04C3133C19182C3D004FFC61 /* ImagesViewController.m in Sources */,
 				C9033C1118F783B000113DDE /* userInfo.m in Sources */,
 				B3ADD7A21911E4D3009B6999 /* EventCell.m in Sources */,
 				C9B80E5918E23C00004F236E /* main.m in Sources */,
