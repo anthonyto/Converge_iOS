@@ -60,8 +60,8 @@
     spin.hidesWhenStopped = YES;
     [self.view addSubview:spin];
     [self getEventsJSON];
-    footie = [[footerView alloc] initWithFrame:CGRectMake(20, 530, 275, 50)];
-    footie.loginName = [[userInfo userInfo] getInfo].name;
+    footie = [[footerView alloc] initWithFrame:CGRectMake(0, 520, 320, 50)];
+    //footie.loginName = [[userInfo userInfo] getInfo].name;
     [self.view addSubview:footie];
     [footie.logout addTarget:self action:@selector(FBLogout:) forControlEvents:UIControlEventTouchUpInside];
 }

@@ -65,8 +65,8 @@
     self.eventLocation.delegate = self;
     self.eventDescription.delegate = self;
     
-    footie = [[footerView alloc] initWithFrame:CGRectMake(20, 515, 275, 50)];
-    footie.loginName = [[userInfo userInfo] getInfo].name;
+    footie = [[footerView alloc] initWithFrame:CGRectMake(0, 520, 320, 50)];
+    //footie.loginName = [[userInfo userInfo] getInfo].name;
     [self.view addSubview:footie];
     [footie.logout addTarget:self action:@selector(FBLogout:) forControlEvents:UIControlEventTouchUpInside];
     
