@@ -17,6 +17,8 @@
     NSString * font;
     footerView *footie;
     BOOL emptyList;
+    NSString * currEventId;
+    NSString * currEventTitle;
 }
 
 @end
@@ -105,6 +107,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Event * currEvent = ((Event *)[events objectAtIndex:indexPath.row]);
+    currEventId = currEvent.eventid;
+    currEventTitle = currEvent.name;
+    [self performSegueWithIdentifier:@"eventViewSegue" sender:self];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -135,8 +141,9 @@
     if (cell == nil) {
         cell = [[EventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.titleLabel.text = [NSString stringWithFormat:@"%@", ((Event *)[events objectAtIndex:indexPath.row]).name];
-    cell.startLabel.text = [NSString stringWithFormat:@"%@", ((Event *)[events objectAtIndex:indexPath.row]).start];
+    Event * currE = ((Event *)[events objectAtIndex:indexPath.row]);
+    cell.titleLabel.text = [NSString stringWithFormat:@"%@", currE.name];
+    cell.startLabel.text = [NSString stringWithFormat:@"%@", currE.start];
     cell.titleLabel.font = [UIFont fontWithName:font size:cell.titleLabel.font.pointSize];
     cell.startLabel.font = [UIFont fontWithName:font size:cell.startLabel.font.pointSize];
     cell.acceptButton.titleLabel.font = [UIFont fontWithName:font size:15.0];
@@ -202,4 +209,11 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier] isEqualToString:@"eventViewSegue"]){
+        ImagesViewController * next = [segue destinationViewController];
+        next.eventId = currEventId;
+        next.eventTitle = currEventTitle;
+    }
+}
 @end

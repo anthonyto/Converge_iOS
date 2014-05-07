@@ -14,6 +14,7 @@
 }
 
 @property (strong, nonatomic) NSMutableArray *pictures;
-
+@property (strong, nonatomic) NSString * eventId;
+@property (strong, nonatomic) NSString * eventTitle;
 
 @end

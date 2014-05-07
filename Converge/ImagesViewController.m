@@ -29,12 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.view.backgroundColor = [UIColor colorWithRed:90/255.0 green:194/255.0 blue:215/255.0 alpha:1];
 		// Open API call to get array of image urls
-		NSURL *url = [[NSURL alloc] initWithString:@"http://converge-rails.herokuapp.com/api/events/1/pictures"];
+		/*NSURL *url = [[NSURL alloc] initWithString:@"http://converge-rails.herokuapp.com/api/events/1/pictures"];
 		NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
 		NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
-		[connection start];		
+		[connection start];	*/
+    [self navigationItem].title = self.eventTitle;
+    NSLog(@"%@, %@", self.eventId, self.eventTitle);
 }
 
 - (void)didReceiveMemoryWarning

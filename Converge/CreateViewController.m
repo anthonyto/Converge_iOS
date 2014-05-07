@@ -113,18 +113,21 @@
     return YES;
 }
 
+- (NSString *) urlEncode:(NSString *) str{
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)str,NULL,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 ));
+}
 
 - (IBAction)createButton:(id)sender {
     
  
-    NSString * et = self.eventTitle.text;
-    NSString * el = self.eventLocation.text;
-    NSString * es = self.eventStart.text;
-    NSString * ee = self.eventEnd.text;
-    NSString * ed = self.eventDescription.text; //NEED TO ESCAPE CHARACTERS
-    NSString * queryString = [NSString stringWithFormat: @"event[name]=%@&event[location]=%@&event[start_time]=%@&event[end_time]=%@&event[description]=%@", et, el, es, ee, ed ];
+    NSString * et = [self urlEncode:self.eventTitle.text];
+    NSString * el = [self urlEncode:self.eventLocation.text ];
+    NSString * es = [self urlEncode:self.eventStart.text];
+    NSString * ee = [self urlEncode:self.eventEnd.text ];
+    NSString * ed = [self urlEncode:self.eventDescription.text];
+    NSString * queryString = [NSString stringWithFormat: @"event%%5Bname%%5D=%@&event%%5Blocation%%5D=%@&event%%5Bstart_time%%5D=%@&event%%5Bend_time%%5D=%@&event%%5Bdescription%%5D=%@&event%%5Buid%%5D=%@", et, el, es, ee, ed,  [[userInfo userInfo] getInfo].id];
     
-    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)queryString,NULL,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 ));
+    /*NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)queryString,NULL,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 ));*/
     if(self.eventStart.text.length==0 || self.eventEnd.text.length==0 || self.eventDescription.text.length==0 || self.eventLocation.text.length==0 || self.eventTitle.text.length==0){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"One or more fields are empty."
                                                         message:@"Please enter all fields."
@@ -135,7 +138,7 @@
 
     }
     if([self isValidEvent]){
-        data = [encodedString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        data = [queryString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Event times invalid."
                                                         message:@"Your start time must be before the end time."
@@ -143,12 +146,11 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        return;
         
     }
     
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[data length]];
-    NSString * tmpp = [NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events", [[userInfo userInfo] getInfo].id];
-    
     NSURL *url = [[NSURL alloc] initWithString: [NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events", [[userInfo userInfo] getInfo].id]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:url];
