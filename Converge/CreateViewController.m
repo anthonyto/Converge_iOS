@@ -17,6 +17,7 @@
     UIToolbar * dateInputDone;
     UIDatePicker * dateInput;
     UIColor * iosGray;
+    NSMutableData * currData;
     footerView *footie;
 }
 
@@ -160,9 +161,13 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    currData = [[NSMutableData alloc] init];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)d {
+    //NSString *str = [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding];
+    [currData appendData:d];
+    return;
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -174,6 +179,14 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    NSString * str = [[NSString alloc] initWithData:currData encoding:NSUTF8StringEncoding];
+    if(!str || [str length] <= 0){
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Unable to create event."
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    }
     [connection cancel];
 /*    NSString *responseText = [[NSString alloc] initWithData:self.data encoding:NSUTF8StringEncoding];
     
