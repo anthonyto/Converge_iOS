@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04C3133C19182C3D004FFC61 /* ImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3133B19182C3D004FFC61 /* ImagesViewController.m */; };
 		04C3133F19183A57004FFC61 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3133E19183A57004FFC61 /* Picture.m */; };
+		31A556C9191AC7B5001B2832 /* NoResultsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A556C8191AC7B5001B2832 /* NoResultsCell.m */; };
 		31AC6FB11918CFA400CDEC0F /* Raleway-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31AC6FAE1918CFA400CDEC0F /* Raleway-Light.otf */; };
 		31AC6FB21918CFA400CDEC0F /* Raleway-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31AC6FAF1918CFA400CDEC0F /* Raleway-Medium.otf */; };
 		31AC6FB31918CFA400CDEC0F /* Raleway-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31AC6FB01918CFA400CDEC0F /* Raleway-Regular.otf */; };
@@ -50,6 +51,8 @@
 		04C3133B19182C3D004FFC61 /* ImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesViewController.m; sourceTree = "<group>"; };
 		04C3133D19183A57004FFC61 /* Picture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picture.h; sourceTree = "<group>"; };
 		04C3133E19183A57004FFC61 /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picture.m; sourceTree = "<group>"; };
+		31A556C7191AC7B5001B2832 /* NoResultsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoResultsCell.h; sourceTree = "<group>"; };
+		31A556C8191AC7B5001B2832 /* NoResultsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoResultsCell.m; sourceTree = "<group>"; };
 		31AC6FAE1918CFA400CDEC0F /* Raleway-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.otf"; sourceTree = "<group>"; };
 		31AC6FAF1918CFA400CDEC0F /* Raleway-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.otf"; sourceTree = "<group>"; };
 		31AC6FB01918CFA400CDEC0F /* Raleway-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.otf"; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				C9033C1018F783B000113DDE /* userInfo.m */,
 				C9B80E6418E23C00004F236E /* Images.xcassets */,
 				C9B80E5318E23BFF004F236E /* Supporting Files */,
+				31A556C7191AC7B5001B2832 /* NoResultsCell.h */,
+				31A556C8191AC7B5001B2832 /* NoResultsCell.m */,
 			);
 			path = Converge;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				B351CBA519186D5600226088 /* footerView.m in Sources */,
 				C9E348B118EDCB000074CC30 /* CameraViewController.m in Sources */,
 				C9B80E5D18E23C00004F236E /* AppDelegate.m in Sources */,
+				31A556C9191AC7B5001B2832 /* NoResultsCell.m in Sources */,
 				C9033C1418F79FA100113DDE /* CreateViewController.m in Sources */,
 				04C3133F19183A57004FFC61 /* Picture.m in Sources */,
 				B3ADD79F1911D248009B6999 /* Event.m in Sources */,

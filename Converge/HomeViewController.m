@@ -16,6 +16,7 @@
     UIActivityIndicatorView * spin;
     NSString * font;
     footerView *footie;
+    BOOL emptyList;
 }
 
 @end
@@ -31,12 +32,17 @@
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+   //[self getEventsJSON];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     font = @"Raleway-Light";
     eventList = [[NSMutableData alloc] init];
     events = [[NSMutableArray alloc] init];
+    emptyList = true;
     // begin getting data from the server
     self.eventsTable.layer.cornerRadius = 10;
     self.eventsTable.contentInset = UIEdgeInsetsZero;
@@ -68,7 +74,7 @@
 
 - (void) getEventsJSON {
     [spin startAnimating];
-    NSURL *url = [[NSURL alloc] initWithString:@"http://converge-rails.herokuapp.com/api/events"];
+    NSURL *url = [[NSURL alloc] initWithString: [NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events", [[userInfo userInfo] getInfo].id] ];
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
     [connection start];
@@ -94,7 +100,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return events.count;
+    return events.count > 0 ? events.count : 2;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -103,6 +109,26 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"listIdentifier";
+    if(emptyList){
+        if(indexPath.row == 0){
+            cellIdentifier = @"blankIdentifier";
+            UITableViewCell * bc = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if(bc == nil){
+                bc = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            }
+            return bc;
+        } else {
+            cellIdentifier = @"noResultsIdentifier";
+            NoResultsCell*  nrsc = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if(nrsc == nil){
+                nrsc = [[NoResultsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            }
+            nrsc.messageLabel.text = @"No Events :(";
+            nrsc.messageLabel.font = [UIFont fontWithName:font size:20];
+            return nrsc;
+        }
+    }
+    
     
     EventCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -144,6 +170,11 @@
             [events addObject:currE];
             //NSLog(@"Event: %@", currE.name);
         }
+    }
+    if([events count] == 0){
+        emptyList = true;
+    } else {
+        emptyList = false;
     }
     [connection cancel];
     [spin stopAnimating];

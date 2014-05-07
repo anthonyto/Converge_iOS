@@ -11,6 +11,7 @@
 #import "userInfo.h"
 #import "Event.h"
 #import "EventCell.h"
+#import "NoResultsCell.h"
 
 @interface HomeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 - (IBAction)createButton:(id)sender;

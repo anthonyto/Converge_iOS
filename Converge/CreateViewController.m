@@ -135,7 +135,7 @@
 
     }
     if([self isValidEvent]){
-        data = [queryString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        data = [encodedString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Event times invalid."
                                                         message:@"Your start time must be before the end time."
@@ -147,9 +147,9 @@
     }
     
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[data length]];
+    NSString * tmpp = [NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events", [[userInfo userInfo] getInfo].id];
     
-    
-    NSURL *url = [[NSURL alloc] initWithString:@"http://converge-rails.herokuapp.com/api/events"];
+    NSURL *url = [[NSURL alloc] initWithString: [NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events", [[userInfo userInfo] getInfo].id]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
