@@ -108,7 +108,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"listIdentifier";
+    NSString *cellIdentifier = @"listIdentifier";
     if(emptyList){
         if(indexPath.row == 0){
             cellIdentifier = @"blankIdentifier";
