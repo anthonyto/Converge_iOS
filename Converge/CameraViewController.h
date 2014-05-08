@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "userInfo.h"
 
 @interface CameraViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -16,5 +17,5 @@
 
 - (IBAction)selectPhoto:(UIButton *)sender;
 
-
+@property(strong, nonatomic) NSString * eventid;
 @end

@@ -13,6 +13,7 @@
 #import "LoginUIViewController.h"
 #import "AsyncImageView.h"
 #import "QuartzCore/QuartzCore.h"
+#import "CameraViewController.h"
 
 @interface ImagesViewController : UIViewController <UICollectionViewDataSource>
 {

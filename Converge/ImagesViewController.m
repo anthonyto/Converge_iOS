@@ -163,6 +163,7 @@
     static NSString * identifier = @"imageCell";
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     AsyncImageView * currImage = (AsyncImageView*)[cell viewWithTag:74];
+    currImage.contentMode = UIViewContentModeScaleAspectFill;
     currImage.imageURL = [[NSURL alloc] initWithString: [pictures objectAtIndex:indexPath.row]];
     return cell;
 }
@@ -175,5 +176,11 @@
 - (IBAction)refreshButton:(id)sender {
     pictures = [[NSMutableArray alloc] init];
     [self retrieveEventInfo];
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier] isEqualToString:@"cameraSegue"]){
+        CameraViewController * next = [segue destinationViewController];
+        next.eventid = self.event.eventid;
+    }
 }
 @end
