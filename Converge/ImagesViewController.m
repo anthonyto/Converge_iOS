@@ -14,6 +14,7 @@
     footerView * footie;
     NSMutableArray * pictures;
     NSString * font;
+    UIActivityIndicatorView * spin;
 }
 
 @end
@@ -40,6 +41,11 @@
     self.scrollView.backgroundColor = [UIColor clearColor];
     [self.scrollView setContentSize:CGSizeMake(320, 503)];
     
+    spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [spin setColor: [UIColor grayColor]];
+    spin.center = CGPointMake(160,240);
+    spin.hidesWhenStopped = YES;
+    
     [self navigationItem].title = self.event.name;
     self.noImagesLabel.font = [UIFont fontWithName:font size:self.noImagesLabel.font.pointSize];
     
@@ -59,6 +65,11 @@
     self.StartTime.text = self.event.start;
     self.EndTime.text = self.event.start;
     // Open API call to get array of image urls
+    [self retrieveEventInfo];
+}
+
+-(void) retrieveEventInfo{
+    [spin startAnimating];
     NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events/%@", [[userInfo userInfo] getInfo].id, self.event.eventid]];
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
@@ -123,6 +134,7 @@
     CGFloat newSize = collectionPos + self.collectionView.frame.size.height + 48;
     newSize = newSize < 503 ? 503: newSize;
     [self.scrollView setContentSize:CGSizeMake(320, newSize)];
+    [spin stopAnimating];
     [connection cancel];
     
 }
@@ -157,5 +169,9 @@
 }
 - (NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
+}
+- (IBAction)refreshButton:(id)sender {
+    pictures = [[NSMutableArray alloc] init];
+    [self retrieveEventInfo];
 }
 @end

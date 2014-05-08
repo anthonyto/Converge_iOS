@@ -24,5 +24,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *EndTime;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UILabel *noImagesLabel;
+- (IBAction)refreshButton:(id)sender;
 
 @end
