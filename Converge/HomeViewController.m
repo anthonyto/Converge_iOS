@@ -185,8 +185,6 @@
             if([currE.start isEqual: [NSNull null]]){
                 currE.start = @"blank";
             } else {
-                NSDate * tmp = [formatter dateFromString:currE.start];
-                NSLog(@" %@", tmp);
                 currE.start = [NSDateFormatter localizedStringFromDate:[formatter dateFromString:currE.start] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
             }
             if([currE.end isEqual: [NSNull null]]){

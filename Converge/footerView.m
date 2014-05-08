@@ -31,8 +31,8 @@
         userName.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         userName.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         userName.textAlignment = NSTextAlignmentCenter;*/
-        UILabel * username = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 180, 50)];
-        username.text = [NSString stringWithFormat:@" %@", [[userInfo userInfo] getInfo].name];
+        UILabel * username = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 180, 50)];
+        username.text = [[userInfo userInfo] getInfo].name;
         username.font = [UIFont fontWithName:font size:20];
         username.textColor = [UIColor whiteColor];
         //username.backgroundColor = [UIColor redColor];

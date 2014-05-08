@@ -20,7 +20,8 @@
 - (IBAction)eventEndSelection:(id)sender;
 - (IBAction)eventEndSelectionEnd:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *eventDescription;
-
+@property (strong, nonatomic) NSDate * eventStartDate;
+@property (strong, nonatomic) NSDate * eventEndDate;
 - (void)FBLogout:(UIButton *) sender;
 
 @end

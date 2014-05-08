@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "userInfo.h"
 #import "Event.h"
+#import "footerView.h"
+#import "LoginUIViewController.h"
 
-@interface ImagesViewController : UIViewController
+@interface ImagesViewController : UIViewController <UICollectionViewDataSource>
 {
 	
 }
-
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) NSMutableArray *pictures;
 @property (strong, nonatomic) Event * event;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionView;

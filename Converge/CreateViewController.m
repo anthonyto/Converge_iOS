@@ -77,11 +77,13 @@
 -(void) exitDateInput:(id) sender{
     if(eventStartSelected){
         //NSLog(dateInput.date);
+        self.eventStartDate = dateInput.date;
         [self.eventStart setText:[NSDateFormatter localizedStringFromDate:dateInput.date
             dateStyle:NSDateFormatterShortStyle
             timeStyle:NSDateFormatterShortStyle]];
         [self.eventStart resignFirstResponder];
     } else if (eventEndSelected){
+        self.eventEndDate = dateInput.date;
         [self.eventEnd setText:[NSDateFormatter localizedStringFromDate:dateInput.date
             dateStyle:NSDateFormatterShortStyle
             timeStyle:NSDateFormatterShortStyle]];
@@ -120,11 +122,13 @@
 
 - (IBAction)createButton:(id)sender {
     
- 
+    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat: @"yyyy'-'MM'-'dd'T'HH:mm:ss.SSS'Z'"];
+    [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     NSString * et = [self urlEncode:self.eventTitle.text];
     NSString * el = [self urlEncode:self.eventLocation.text ];
-    NSString * es = [self urlEncode:self.eventStart.text];
-    NSString * ee = [self urlEncode:self.eventEnd.text ];
+    NSString * es = [self urlEncode:[formatter stringFromDate:self.eventStartDate]];
+    NSString * ee = [self urlEncode:[formatter stringFromDate:self.eventEndDate]];
     NSString * ed = [self urlEncode:self.eventDescription.text];
     NSString * queryString = [NSString stringWithFormat: @"event%%5Bname%%5D=%@&event%%5Blocation%%5D=%@&event%%5Bstart_time%%5D=%@&event%%5Bend_time%%5D=%@&event%%5Bdescription%%5D=%@&event%%5Buid%%5D=%@", et, el, es, ee, ed,  [[userInfo userInfo] getInfo].id];
     
