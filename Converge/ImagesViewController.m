@@ -13,6 +13,7 @@
     NSMutableData * responseData;
     footerView * footie;
     NSMutableArray * pictures;
+    NSString * font;
 }
 
 @end
@@ -31,26 +32,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    font = @"Raleway-Light";
     pictures = [[NSMutableArray alloc] init];
+    self.view.backgroundColor = [UIColor colorWithRed:90/255.0 green:194/255.0 blue:215/255.0 alpha:1];
+    
     [self.scrollView setScrollEnabled:YES];
     self.scrollView.backgroundColor = [UIColor clearColor];
-    [self.scrollView setContentSize:CGSizeMake(320, 1000)];
-    self.view.backgroundColor = [UIColor colorWithRed:90/255.0 green:194/255.0 blue:215/255.0 alpha:1];
+    [self.scrollView setContentSize:CGSizeMake(320, 503)];
+    
     [self navigationItem].title = self.event.name;
-
+    self.noImagesLabel.font = [UIFont fontWithName:font size:self.noImagesLabel.font.pointSize];
+    
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    
     self.descriptionView.editable = NO;
     self.descriptionView.backgroundColor = [UIColor clearColor];
     self.descriptionView.contentInset = UIEdgeInsetsZero;
-    /*CGFloat topCorrect = ([self.descriptionView bounds].size.height - [self.descriptionView contentSize].height*[self.descriptionView zoomScale]/2.0);
-    topCorrect = topCorrect < 0.0 ? 0.0 : topCorrect;
-    self.descriptionView.contentOffset = CGPointMake(0, -topCorrect);*/
     self.automaticallyAdjustsScrollViewInsets = NO;
 
     footie = [[footerView alloc] initWithFrame:CGRectMake(0, 520, 320, 50)];
     //footie.loginName = [[userInfo userInfo] getInfo].name;
     [self.view addSubview:footie];
     [footie.logout addTarget:self action:@selector(FBLogout:) forControlEvents:UIControlEventTouchUpInside];
-    footie.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+    footie.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
     
     self.StartTime.text = self.event.start;
     self.EndTime.text = self.event.start;
@@ -110,6 +114,15 @@
         NSDictionary * curr = [piclist objectAtIndex:i];
         [pictures addObject:[[curr objectForKey:@"picture"] objectForKey:@"url" ]];
     }
+    [self.collectionView reloadData];
+
+    CGFloat collectionPos = self.collectionView.frame.origin.y;
+    CGRect cvFrame = self.collectionView.frame;
+    cvFrame.size.height = 160* ((pictures.count+1)/2);
+    self.collectionView.frame = cvFrame;
+    CGFloat newSize = collectionPos + self.collectionView.frame.size.height + 48;
+    newSize = newSize < 503 ? 503: newSize;
+    [self.scrollView setContentSize:CGSizeMake(320, newSize)];
     [connection cancel];
     
 }
@@ -133,10 +146,14 @@
 }
 
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
+    static NSString * identifier = @"imageCell";
+    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    AsyncImageView * currImage = (AsyncImageView*)[cell viewWithTag:74];
+    currImage.imageURL = [[NSURL alloc] initWithString: [pictures objectAtIndex:indexPath.row]];
+    return cell;
 }
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 0;
+    return pictures.count;
 }
 - (NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;

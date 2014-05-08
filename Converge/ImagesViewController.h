@@ -11,16 +11,18 @@
 #import "Event.h"
 #import "footerView.h"
 #import "LoginUIViewController.h"
+#import "AsyncImageView.h"
 
 @interface ImagesViewController : UIViewController <UICollectionViewDataSource>
 {
 	
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) NSMutableArray *pictures;
 @property (strong, nonatomic) Event * event;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionView;
 @property (weak, nonatomic) IBOutlet UILabel *StartTime;
 @property (weak, nonatomic) IBOutlet UILabel *EndTime;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UILabel *noImagesLabel;
 
 @end

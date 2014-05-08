@@ -10,6 +10,7 @@
 		04C3133C19182C3D004FFC61 /* ImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3133B19182C3D004FFC61 /* ImagesViewController.m */; };
 		04C3133F19183A57004FFC61 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3133E19183A57004FFC61 /* Picture.m */; };
 		31A556C9191AC7B5001B2832 /* NoResultsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A556C8191AC7B5001B2832 /* NoResultsCell.m */; };
+		31A556CD191B5A1F001B2832 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A556CC191B5A1F001B2832 /* AsyncImageView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		31AC6FB11918CFA400CDEC0F /* Raleway-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31AC6FAE1918CFA400CDEC0F /* Raleway-Light.otf */; };
 		31AC6FB21918CFA400CDEC0F /* Raleway-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31AC6FAF1918CFA400CDEC0F /* Raleway-Medium.otf */; };
 		31AC6FB31918CFA400CDEC0F /* Raleway-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31AC6FB01918CFA400CDEC0F /* Raleway-Regular.otf */; };
@@ -53,6 +54,8 @@
 		04C3133E19183A57004FFC61 /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picture.m; sourceTree = "<group>"; };
 		31A556C7191AC7B5001B2832 /* NoResultsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoResultsCell.h; sourceTree = "<group>"; };
 		31A556C8191AC7B5001B2832 /* NoResultsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoResultsCell.m; sourceTree = "<group>"; };
+		31A556CB191B5A1F001B2832 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		31A556CC191B5A1F001B2832 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		31AC6FAE1918CFA400CDEC0F /* Raleway-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.otf"; sourceTree = "<group>"; };
 		31AC6FAF1918CFA400CDEC0F /* Raleway-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.otf"; sourceTree = "<group>"; };
 		31AC6FB01918CFA400CDEC0F /* Raleway-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.otf"; sourceTree = "<group>"; };
@@ -115,6 +118,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31A556CA191B5A1F001B2832 /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
+				31A556CB191B5A1F001B2832 /* AsyncImageView.h */,
+				31A556CC191B5A1F001B2832 /* AsyncImageView.m */,
+			);
+			path = AsyncImageView;
+			sourceTree = "<group>";
+		};
 		31AC6FA41918C86600CDEC0F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +172,7 @@
 		C9B80E5218E23BFF004F236E /* Converge */ = {
 			isa = PBXGroup;
 			children = (
+				31A556CA191B5A1F001B2832 /* AsyncImageView */,
 				31AC6FA41918C86600CDEC0F /* Fonts */,
 				B351CBA319186D5600226088 /* footerView.h */,
 				B351CBA419186D5600226088 /* footerView.m */,
@@ -332,6 +345,7 @@
 				C9033C1118F783B000113DDE /* userInfo.m in Sources */,
 				B3ADD7A21911E4D3009B6999 /* EventCell.m in Sources */,
 				C9B80E5918E23C00004F236E /* main.m in Sources */,
+				31A556CD191B5A1F001B2832 /* AsyncImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
