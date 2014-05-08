@@ -19,6 +19,7 @@
     BOOL emptyList;
     NSString * currEventId;
     NSString * currEventTitle;
+    Event * currEventParam;
 }
 
 @end
@@ -107,9 +108,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    Event * currEvent = ((Event *)[events objectAtIndex:indexPath.row]);
-    currEventId = currEvent.eventid;
-    currEventTitle = currEvent.name;
+    //Event * currEvent = ((Event *)[events objectAtIndex:indexPath.row]);
+    //currEventId = currEvent.eventid;
+    //currEventTitle = currEvent.name;
+    currEventParam = ((Event *)[events objectAtIndex:indexPath.row]);
     [self performSegueWithIdentifier:@"eventViewSegue" sender:self];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,6 +167,11 @@
     if(!data){
         NSLog(@"Error parsing JSON");
     } else {
+        
+        NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat: @"yyyy'-'MM'-'dd'T'HH:mm:ss.SSS'Z'"];
+        [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+        
         for(NSDictionary * curr in data){
             NSDictionary * info = [curr objectForKey:@"event"];
             Event * currE = [[Event alloc] init];
@@ -175,6 +182,18 @@
             currE.end = [info objectForKey:@"end_time"];
             currE.description = [info objectForKey:@"description"];
             [events addObject:currE];
+            if([currE.start isEqual: [NSNull null]]){
+                currE.start = @"blank";
+            } else {
+                NSDate * tmp = [formatter dateFromString:currE.start];
+                NSLog(@" %@", tmp);
+                currE.start = [NSDateFormatter localizedStringFromDate:[formatter dateFromString:currE.start] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+            }
+            if([currE.end isEqual: [NSNull null]]){
+                currE.end = @"blank";
+            } else {
+                currE.end = [NSDateFormatter localizedStringFromDate:[formatter dateFromString:currE.end] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+            }
             //NSLog(@"Event: %@", currE.name);
         }
     }
@@ -212,8 +231,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqualToString:@"eventViewSegue"]){
         ImagesViewController * next = [segue destinationViewController];
-        next.eventId = currEventId;
-        next.eventTitle = currEventTitle;
+        //next.eventId = currEventId;
+        //next.eventTitle = currEventTitle;
+        next.event = currEventParam;
     }
 }
 @end

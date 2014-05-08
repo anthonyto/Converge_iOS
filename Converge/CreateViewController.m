@@ -76,6 +76,7 @@
 
 -(void) exitDateInput:(id) sender{
     if(eventStartSelected){
+        //NSLog(dateInput.date);
         [self.eventStart setText:[NSDateFormatter localizedStringFromDate:dateInput.date
             dateStyle:NSDateFormatterShortStyle
             timeStyle:NSDateFormatterShortStyle]];

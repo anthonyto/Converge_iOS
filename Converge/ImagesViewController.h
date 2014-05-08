@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "userInfo.h"
+#import "Event.h"
 
 @interface ImagesViewController : UIViewController
 {
@@ -14,7 +16,9 @@
 }
 
 @property (strong, nonatomic) NSMutableArray *pictures;
-@property (strong, nonatomic) NSString * eventId;
-@property (strong, nonatomic) NSString * eventTitle;
+@property (strong, nonatomic) Event * event;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionView;
+@property (weak, nonatomic) IBOutlet UILabel *StartTime;
+@property (weak, nonatomic) IBOutlet UILabel *EndTime;
 
 @end

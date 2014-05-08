@@ -30,13 +30,21 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:90/255.0 green:194/255.0 blue:215/255.0 alpha:1];
-		// Open API call to get array of image urls
-		/*NSURL *url = [[NSURL alloc] initWithString:@"http://converge-rails.herokuapp.com/api/events/1/pictures"];
-		NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
-		NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
-		[connection start];	*/
-    [self navigationItem].title = self.eventTitle;
-    NSLog(@"%@, %@", self.eventId, self.eventTitle);
+    [self navigationItem].title = self.event.name;
+
+    self.descriptionView.editable = NO;
+    self.descriptionView.backgroundColor = [UIColor clearColor];
+    self.descriptionView.contentInset = UIEdgeInsetsZero;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.StartTime.text = [NSString stringWithFormat:@"Start: %@", self.event.start];
+    self.EndTime.text = [NSString stringWithFormat:@"End: %@", self.event.start];
+    // Open API call to get array of image urls
+    NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events/%@", [[userInfo userInfo] getInfo].id, self.event.eventid]];
+    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
+    self.descriptionView.text = self.event.description;
+    [connection start];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,6 +88,11 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     // The request has failed for some reason!
     // Check the error var
+    [[[UIAlertView alloc] initWithTitle:@"Unable to retrieve event info"
+                                message:@"Sorry :("
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
 }
 
 /*
