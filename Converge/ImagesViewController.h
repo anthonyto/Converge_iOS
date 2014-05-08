@@ -12,6 +12,7 @@
 #import "footerView.h"
 #import "LoginUIViewController.h"
 #import "AsyncImageView.h"
+#import "QuartzCore/QuartzCore.h"
 
 @interface ImagesViewController : UIViewController <UICollectionViewDataSource>
 {
@@ -25,5 +26,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UILabel *noImagesLabel;
 - (IBAction)refreshButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *cameraButton;
 
 @end

@@ -62,6 +62,8 @@
     [footie.logout addTarget:self action:@selector(FBLogout:) forControlEvents:UIControlEventTouchUpInside];
     footie.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
     
+    [self.view bringSubviewToFront:self.cameraButton];
+    //self.cameraButton.layer.zPosition = 10;
     self.StartTime.text = self.event.start;
     self.EndTime.text = self.event.start;
     // Open API call to get array of image urls
