@@ -45,8 +45,8 @@
     [self.scrollView setContentSize:CGSizeMake(320, 503)];
     
     spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [spin setColor: [UIColor grayColor]];
-    spin.center = CGPointMake(160,270);
+    //[spin setColor: [UIColor grayColor]];
+    spin.center = CGPointMake(160,220);
     spin.hidesWhenStopped = YES;
     [self.view addSubview:spin];
     
