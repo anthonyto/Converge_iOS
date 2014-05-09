@@ -42,6 +42,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
     font = @"Raleway-Light";
     eventList = [[NSMutableData alloc] init];
     events = [[NSMutableArray alloc] init];
