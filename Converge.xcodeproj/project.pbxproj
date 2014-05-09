@@ -289,6 +289,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Vyshak Nagappala";
 				TargetAttributes = {
+					C9B80E4818E23BFF004F236E = {
+						DevelopmentTeam = 9MAS6P3ZAT;
+					};
 					C9B80E6918E23C00004F236E = {
 						TestTargetID = C9B80E4818E23BFF004F236E;
 					};
@@ -482,6 +485,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Patron/Documents/FacebookSDK,
@@ -492,6 +498,7 @@
 				GCC_PREFIX_HEADER = "Converge/Converge-Prefix.pch";
 				INFOPLIST_FILE = "Converge/Converge-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -501,6 +508,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Patron/Documents/FacebookSDK,
@@ -511,6 +520,7 @@
 				GCC_PREFIX_HEADER = "Converge/Converge-Prefix.pch";
 				INFOPLIST_FILE = "Converge/Converge-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
