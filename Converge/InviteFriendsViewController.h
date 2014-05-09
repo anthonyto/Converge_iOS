@@ -15,6 +15,7 @@
 
 - (IBAction)SendInvites:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (strong, nonatomic) NSString * eventid;
 
 
 

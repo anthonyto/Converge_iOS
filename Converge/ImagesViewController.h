@@ -14,6 +14,8 @@
 #import "AsyncImageView.h"
 #import "QuartzCore/QuartzCore.h"
 #import "CameraViewController.h"
+#import "ImageDetailController.h"
+#import "InviteFriendsViewController.h"
 
 @interface ImagesViewController : UIViewController <UICollectionViewDataSource>
 {

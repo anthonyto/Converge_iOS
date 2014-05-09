@@ -20,6 +20,7 @@
 		B3ADD7A21911E4D3009B6999 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3ADD7A11911E4D3009B6999 /* EventCell.m */; };
 		C9033C1118F783B000113DDE /* userInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C9033C1018F783B000113DDE /* userInfo.m */; };
 		C9033C1418F79FA100113DDE /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9033C1318F79FA100113DDE /* CreateViewController.m */; };
+		C90ABF6D191D7029003D4E14 /* ImageDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = C90ABF6C191D7029003D4E14 /* ImageDetailController.m */; };
 		C90B999D191C335D00B56E85 /* InviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C90B999C191C335D00B56E85 /* InviteFriendsViewController.m */; };
 		C93688C918E8B51900E165E5 /* LoginUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93688C818E8B51900E165E5 /* LoginUIViewController.m */; };
 		C9843A3E191C59CC00D6CA70 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9843A3D191C59CC00D6CA70 /* FriendCell.m */; };
@@ -71,6 +72,8 @@
 		C9033C1018F783B000113DDE /* userInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userInfo.m; sourceTree = "<group>"; };
 		C9033C1218F79FA100113DDE /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
 		C9033C1318F79FA100113DDE /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
+		C90ABF6B191D7029003D4E14 /* ImageDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailController.h; sourceTree = "<group>"; };
+		C90ABF6C191D7029003D4E14 /* ImageDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailController.m; sourceTree = "<group>"; };
 		C90B999B191C335D00B56E85 /* InviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsViewController.h; sourceTree = "<group>"; };
 		C90B999C191C335D00B56E85 /* InviteFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteFriendsViewController.m; sourceTree = "<group>"; };
 		C93688C718E8B51900E165E5 /* LoginUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginUIViewController.h; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 				C9B80E5318E23BFF004F236E /* Supporting Files */,
 				C9843A3C191C59CC00D6CA70 /* FriendCell.h */,
 				C9843A3D191C59CC00D6CA70 /* FriendCell.m */,
+				C90ABF6B191D7029003D4E14 /* ImageDetailController.h */,
+				C90ABF6C191D7029003D4E14 /* ImageDetailController.m */,
 			);
 			path = Converge;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 				C93688C918E8B51900E165E5 /* LoginUIViewController.m in Sources */,
 				B351CBA519186D5600226088 /* footerView.m in Sources */,
 				C9E348B118EDCB000074CC30 /* CameraViewController.m in Sources */,
+				C90ABF6D191D7029003D4E14 /* ImageDetailController.m in Sources */,
 				C9B80E5D18E23C00004F236E /* AppDelegate.m in Sources */,
 				31A556C9191AC7B5001B2832 /* NoResultsCell.m in Sources */,
 				C9033C1418F79FA100113DDE /* CreateViewController.m in Sources */,

@@ -43,6 +43,12 @@
                                                   NSDictionary* result,
                                                   NSError *error) {
         friends = [result objectForKey:@"data"];
+        friends = [friends sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+            NSString *first = ((NSDictionary<FBGraphUser>*)a).name;
+            NSString *second = ((NSDictionary<FBGraphUser>*)b).name;
+            return [first compare:second options:NSCaseInsensitiveSearch];
+        }];
+        
         [self.friendsTable reloadData];
     }];
     
@@ -184,12 +190,12 @@
     //NSLog(@"%@", js);
     
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[data length]];
-    NSURL *url = [[NSURL alloc] initWithString: [NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events", [[userInfo userInfo] getInfo].id]];
+    NSURL *url = [[NSURL alloc] initWithString: [NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events/%@/invite", [[userInfo userInfo] getInfo].id, self.eventid]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:data];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [connection start];

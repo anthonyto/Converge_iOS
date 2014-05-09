@@ -82,6 +82,7 @@
      events = [[NSMutableArray alloc] init];
     [spin startAnimating];
     NSURL *url = [[NSURL alloc] initWithString: [NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events", [[userInfo userInfo] getInfo].id] ];
+    //NSURL *url = [[NSURL alloc] initWithString: [NSString stringWithFormat:@"http://d4dcccf.ngrok.com/api/users/%@/events", [[userInfo userInfo] getInfo].id]];
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
     [connection start];
@@ -111,6 +112,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(emptyList){ return; }
     //Event * currEvent = ((Event *)[events objectAtIndex:indexPath.row]);
     //currEventId = currEvent.eventid;
     //currEventTitle = currEvent.name;

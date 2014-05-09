@@ -15,6 +15,7 @@
     NSMutableArray * pictures;
     NSString * font;
     UIActivityIndicatorView * spin;
+    UIImageView * passedImage;
 }
 
 @end
@@ -79,6 +80,7 @@
     pictures = [[NSMutableArray alloc] init];
     [spin startAnimating];
     NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events/%@", [[userInfo userInfo] getInfo].id, self.event.eventid]];
+    //NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://d4dcccf.ngrok.com/api/users/%@/events/%@", [[userInfo userInfo] getInfo].id, self.event.eventid]];
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
     self.descriptionView.text = self.event.description;
@@ -189,6 +191,20 @@
     if([[segue identifier] isEqualToString:@"cameraSegue"]){
         CameraViewController * next = [segue destinationViewController];
         next.eventid = self.event.eventid;
+    } else if([[segue identifier] isEqualToString:@"imageDetailSegue"]){
+        ImageDetailController * imageDetail = [segue destinationViewController];
+        imageDetail.param = passedImage;
+    } else if([[segue identifier] isEqualToString:@"inviteFriendsSegue"]){
+        InviteFriendsViewController * inviteView = [segue destinationViewController];
+        inviteView.eventid = self.event.eventid;
     }
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    passedImage = (AsyncImageView*)[[self.collectionView cellForItemAtIndexPath:indexPath] viewWithTag:74];
+    //ImageDetailController * imageDetail = [[ImageDetailController alloc]init];
+    //imageDetail.param = passedImage;
+    [self performSegueWithIdentifier:@"imageDetailSegue" sender:self];
+}
+
 @end

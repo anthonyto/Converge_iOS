@@ -157,6 +157,7 @@
     
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[data length]];
     NSURL *url = [[NSURL alloc] initWithString: [NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events", [[userInfo userInfo] getInfo].id]];
+    //NSURL *url = [[NSURL alloc] initWithString: [NSString stringWithFormat:@"http://d4dcccf.ngrok.com/api/users/%@/events", [[userInfo userInfo] getInfo].id]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
