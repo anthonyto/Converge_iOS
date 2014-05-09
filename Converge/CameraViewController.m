@@ -178,7 +178,7 @@
     NSString * str = [[NSString alloc] initWithData:currData encoding:NSUTF8StringEncoding];
     [spin stopAnimating];
     [connection cancel];
-    if(!str || [str length] <= 0){
+    if(!str || [str length] <= 0 || [str rangeOfString:@"work"].location == NSNotFound){
         [[[UIAlertView alloc] initWithTitle:@"Error"
                                     message:@"Unable to Upload image."
                                    delegate:nil
