@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "userInfo.h"
 
 @interface InviteFriendsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *friendsTable;
+
+- (IBAction)SendInvites:(id)sender;
+
 
 
 @end

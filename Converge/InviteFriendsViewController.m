@@ -14,6 +14,7 @@
     NSArray * friends;
     NSMutableDictionary *InvitedFriends;
     NSInteger *numFriendsInvited;
+    NSMutableData * currData;
 }
 
 @end
@@ -97,12 +98,91 @@
     return;
 }
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    currData = [[NSMutableData alloc] init];
+}
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)d {
+    //NSString *str = [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding];
+    [currData appendData:d];
+    return;
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    /*    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"")
+     message:[error localizedDescription]
+     delegate:nil
+     cancelButtonTitle:NSLocalizedString(@"OK", @"")
+     otherButtonTitles:nil] show];*/
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    NSString * str = [[NSString alloc] initWithData:currData encoding:NSUTF8StringEncoding];
+    if(!str || [str length] <= 0){
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Unable to create event."
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    [connection cancel];
+    /*    NSString *responseText = [[NSString alloc] initWithData:self.data encoding:NSUTF8StringEncoding];
+     
+     // Do anything you want with it
+     
+     [responseText release];*/
+}
+
+
+- (IBAction)SendInvites:(id)sender {
+    if(InvitedFriends.count == 0)
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Invite at least one friend to event."
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
     
-//}
+        NSMutableArray *friendQueryString = [[NSMutableArray alloc] init];
+    /*for (NSDictionary<FBGraphUser>* friend in InvitedFriends) {
+        [temp setValue:[NSString stringWithFormat:@"%@",[friend objectForKey:@"name"]] forKey:@"name"];
+        [temp setValue:[NSString stringWithFormat:@"%@",[friend objectForKey:@"id"]] forKey:@"uid"];
+        [tempFriend setValue:temp forKey:@"friend"];
+        [friendQueryString addObject:tempFriend];
+    }*/
+    for(NSString * key in InvitedFriends){
+        NSMutableDictionary *tempFriend = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
 
+         FBGraphObject *curr= [InvitedFriends objectForKey:key];
+        [temp setValue:[NSString stringWithFormat:@"%@", [curr objectForKey:@"name"]] forKey:@"name"];
+        [temp setValue:[NSString stringWithFormat:@"%@", [curr objectForKey:@"id"]] forKey:@"uid"];
+        [tempFriend setValue:temp forKey:@"friend"];
+        [friendQueryString addObject:tempFriend];
+    }
+    /*NSString * tmp = [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:friendQueryString options:1 error:nil] encoding:NSUTF8StringEncoding];
+    return;*/
+    NSError * e;
+    NSData * data = [NSJSONSerialization dataWithJSONObject:friendQueryString options:kNilOptions error:&e];
+    //NSString * js = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
+    //NSLog(@"%@", js);
+    
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[data length]];
+    NSURL *url = [[NSURL alloc] initWithString: [NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events", [[userInfo userInfo] getInfo].id]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:data];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+    
+}
 
-
-
+- (NSString *) urlEncode:(NSString *) str{
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)str,NULL,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 ));
+}
 @end
+

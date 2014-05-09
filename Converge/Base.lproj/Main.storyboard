@@ -436,7 +436,7 @@
             </objects>
             <point key="canvasLocation" x="488" y="187"/>
         </scene>
-        <!--Invite Friends View Controller - Title-->
+        <!--Invite Friends View Controller - Invite Friends-->
         <scene sceneID="tSw-61-WG9">
             <objects>
                 <viewController id="FSm-to-6HR" customClass="InviteFriendsViewController" sceneMemberID="viewController">
@@ -445,7 +445,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" id="8qO-54-Sfz">
-                                <rect key="frame" x="0.0" y="53" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="53" width="320" height="422"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -463,10 +463,20 @@
                                     <outlet property="delegate" destination="FSm-to-6HR" id="s7j-kz-HXr"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sr9-Qt-FdR">
+                                <rect key="frame" x="118" y="483" width="85" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send Invites">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="SendInvites:" destination="FSm-to-6HR" eventType="touchUpInside" id="iE4-fX-hLv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="shl-vX-PkX"/>
+                    <navigationItem key="navigationItem" title="Invite Friends" id="shl-vX-PkX"/>
                     <connections>
                         <outlet property="friendsTable" destination="8qO-54-Sfz" id="K3N-hS-rHb"/>
                     </connections>
@@ -510,7 +520,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" patternImage="20FD0C27-DDA6-439C-9A45-4335BCEE03C2" colorSpace="pattern"/>
+                        <color key="backgroundColor" patternImage="C74B3CCD-8040-4E81-BDF7-3AC724F19117" colorSpace="pattern"/>
                     </view>
                     <navigationItem key="navigationItem" id="q2N-bi-Yus"/>
                     <connections>
@@ -523,7 +533,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="20FD0C27-DDA6-439C-9A45-4335BCEE03C2" width="256" height="256">
+        <image name="C74B3CCD-8040-4E81-BDF7-3AC724F19117" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
