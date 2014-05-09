@@ -18,4 +18,8 @@
 - (IBAction)selectPhoto:(UIButton *)sender;
 
 @property(strong, nonatomic) NSString * eventid;
+@property (weak, nonatomic) IBOutlet UIButton *cameraButton;
+@property (weak, nonatomic) IBOutlet UIButton *selectButton;
+@property (weak, nonatomic) IBOutlet UIButton *uploadButton;
+- (IBAction)uploadButton:(id)sender;
 @end

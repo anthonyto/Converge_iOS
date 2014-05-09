@@ -29,6 +29,9 @@
     }
     return self;
 }
+-(void) viewWillAppear:(BOOL)animated{
+    [self retrieveEventInfo];
+}
 
 - (void)viewDidLoad
 {
@@ -45,6 +48,7 @@
     [spin setColor: [UIColor grayColor]];
     spin.center = CGPointMake(160,240);
     spin.hidesWhenStopped = YES;
+    [self.view addSubview:spin];
     
     [self navigationItem].title = self.event.name;
     self.noImagesLabel.font = [UIFont fontWithName:font size:self.noImagesLabel.font.pointSize];
@@ -67,7 +71,7 @@
     self.StartTime.text = self.event.start;
     self.EndTime.text = self.event.start;
     // Open API call to get array of image urls
-    [self retrieveEventInfo];
+    //[self retrieveEventInfo];
 }
 
 -(void) retrieveEventInfo{
@@ -126,6 +130,9 @@
     for(int i = 0; i < piclist.count; i++){
         NSDictionary * curr = [piclist objectAtIndex:i];
         [pictures addObject:[[curr objectForKey:@"picture"] objectForKey:@"url" ]];
+    }
+    if(piclist.count > 0){
+        self.noImagesLabel.hidden = YES;
     }
     [self.collectionView reloadData];
 
