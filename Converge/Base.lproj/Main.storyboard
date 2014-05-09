@@ -537,11 +537,8 @@
         </scene>
     </scenes>
     <resources>
-<<<<<<< HEAD
-        <image name="846CEB9F-AADE-46E6-964B-12A595894B9F" width="256" height="256">
-=======
         <image name="20FD0C27-DDA6-439C-9A45-4335BCEE03C2" width="256" height="256">
->>>>>>> b603d7b24aa9d5a5d1d0cb46d0c1ae517c13120c
+
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
