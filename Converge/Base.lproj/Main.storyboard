@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="UZX-zV-dat">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="UZX-zV-dat">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -484,7 +484,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="B43-oP-x8e">
-                                <rect key="frame" x="0.0" y="20" width="320" height="418"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nEu-pG-gqf" colorLabel="IBBuiltInLabel-Green">
@@ -509,12 +509,25 @@
                                     <action selector="selectPhoto:" destination="CRM-ol-Ab4" eventType="touchUpInside" id="ZsV-2A-Dgi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fR5-Md-wDe">
+                                <rect key="frame" x="110" y="448" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="accept_button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadButton:" destination="CRM-ol-Ab4" eventType="touchUpInside" id="8hx-JC-GzF"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" patternImage="F1C91480-8D95-454C-8DC9-9034853E625B" colorSpace="pattern"/>
+                        <color key="backgroundColor" patternImage="846CEB9F-AADE-46E6-964B-12A595894B9F" colorSpace="pattern"/>
                     </view>
                     <navigationItem key="navigationItem" id="q2N-bi-Yus"/>
                     <connections>
+                        <outlet property="cameraButton" destination="nEu-pG-gqf" id="SZy-K8-8x7"/>
                         <outlet property="imageView" destination="B43-oP-x8e" id="6R7-XW-bMj"/>
+                        <outlet property="selectButton" destination="X5c-bE-wsF" id="SUk-Po-NtO"/>
+                        <outlet property="uploadButton" destination="fR5-Md-wDe" id="tQy-C4-8xL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HhQ-lV-N9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -523,8 +536,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Camera_button" width="128" height="128"/>
-        <image name="F1C91480-8D95-454C-8DC9-9034853E625B" width="256" height="256">
+        <image name="846CEB9F-AADE-46E6-964B-12A595894B9F" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -4900,9 +4912,9 @@ ohscgAWABoAJEADSIAohIl8QFE5TVElGRlJlcHJlc2VudGF0aW9ugAeACE8SAAQNHk1NACoABAAIdXiB
 /2dqdP9sb3n/am13/2ptd/9wc33/d3qD/2ptd/9qbXf/e32D/2xudf9sb3n/bnF7/2xvef9qbHP/dXd9
 /3V3ff9qbXf/c3V8/25wd/9wc33/bnB3/3Z4fP9ucXv/cHJ5/3Byef93eoP/bnF7/3Bzff9sb3n/cHN9
 /wAOAQAAAwAAAAEBAAAAAQEAAwAAAAEBAAAAAQIAAwAAAAQABAC2AQMAAwAAAAEAAQAAAQYAAwAAAAEA
-AgAAAREABAAAAAIABAC+ARIAAwAAAAEAAQAAARUAAwAAAAEABAAAARYAAwAAAAEAgAAAARcABAAAAAIA
-BADGARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAQABADOh3MABwAADEgABADWAAAAAAAIAAgA
-CAAIAAAACAACAAgAAgAAAAIAAAABAAEAAQABAAAMSExpbm8CEAAAbW50clJHQiBYWVogB84AAgAJAAYA
+AgAAAREABAAAAAIABADGARIAAwAAAAEAAQAAARUAAwAAAAEABAAAARYAAwAAAAEAgAAAARcABAAAAAIA
+BAC+ARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAQABADOh3MABwAADEgABADWAAAAAAAIAAgA
+CAAIAAIAAAACAAAAAAAIAAIACAABAAEAAQABAAAMSExpbm8CEAAAbW50clJHQiBYWVogB84AAgAJAAYA
 MQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAAAAPbWAAEAAAAA0y1IUCAgAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARY3BydAAAAVAAAAAzZGVzYwAAAYQA
 AABsd3RwdAAAAfAAAAAUYmtwdAAAAgQAAAAUclhZWgAAAhgAAAAUZ1hZWgAAAiwAAAAUYlhZWgAAAkAA
@@ -4966,6 +4978,7 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
+        <image name="Camera_button" width="128" height="128"/>
         <image name="accept_button" width="128" height="128"/>
         <image name="button_dark" width="125" height="125"/>
         <image name="capture" width="128" height="128"/>
