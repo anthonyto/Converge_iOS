@@ -84,6 +84,14 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    FriendCell * cell = (FriendCell *)[self.friendsTable cellForRowAtIndexPath:indexPath];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    cell.friendSelected = NO;
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    [InvitedFriends removeObjectForKey:[NSString stringWithFormat:@"%d", indexPath.row]];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //[tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSObject * temp = [friends objectAtIndex:indexPath.row];
