@@ -39,6 +39,13 @@
     spin.center = CGPointMake(160,240);
     spin.hidesWhenStopped = YES;
     [self.view addSubview:spin];
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:NO completion:NULL];
 }
 
 - (void) postImage {

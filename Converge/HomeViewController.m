@@ -59,6 +59,7 @@
                                    UITextAttributeTextColor: [UIColor whiteColor]
     };
     
+    
     self.navigationController.navigationBar.titleTextAttributes = navSettings;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
