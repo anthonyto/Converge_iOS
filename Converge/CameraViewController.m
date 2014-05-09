@@ -140,7 +140,7 @@
     [picker.view addSubview:selectButton];
     currPicker = pick*/
     
-    [self presentViewController:currP	icker animated:YES completion:NULL];
+    [self presentViewController:currPicker animated:YES completion:NULL];
 }
 
 - (void) switchToUpload {
