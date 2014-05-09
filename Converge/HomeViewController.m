@@ -73,6 +73,7 @@
     //footie.loginName = [[userInfo userInfo] getInfo].name;
     [self.view addSubview:footie];
     [footie.logout addTarget:self action:@selector(FBLogout:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void) getEventsJSON {

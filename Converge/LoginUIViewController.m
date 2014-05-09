@@ -26,24 +26,6 @@
     if (self) {
         // Custom initialization
         
-        // Create a FBLoginView to log the user in with basic, email and likes permissions
-        // You should ALWAYS ask for basic permissions (basic_info) when logging the user in
-        //FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
-        
-        // Set this loginUIViewController to be the loginView button's delegate
-        //loginView.delegate = self;
-        
-        // Align the button in the center horizontally
-        //loginView.frame = CGRectOffset(loginView.frame,
-        //                               (self.view.center.x - (loginView.frame.size.width / 2)),
-        //                               5);
-        
-        // Align the button in the center vertically
-        //loginView.center = self.view.center;
-        
-        // Add the button to the view
-        //[self.view addSubview:loginView];
-        //UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         
         
     }
@@ -65,7 +47,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:90/255.0 green:194/255.0 blue:215/255.0 alpha:1];
-    self.FBloginButton.readPermissions = @[@"basic_info"];
+    self.FBloginButton.readPermissions = @[@"basic_info", @"user_friends"];
 	// Do any additional setup after loading the view.
 }
 
