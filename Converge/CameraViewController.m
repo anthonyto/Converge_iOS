@@ -11,6 +11,7 @@
 @interface CameraViewController (){
     NSMutableData * currData;
     UIActivityIndicatorView * spin;
+    UIImagePickerController * currPicker;
 }
 
 @end
@@ -40,10 +41,16 @@
     spin.hidesWhenStopped = YES;
     [self.view addSubview:spin];
     
+    
+    UIButton * selectButton = [[UIButton alloc] initWithFrame:CGRectMake(220, 420, 100,100)];
+    [selectButton setBackgroundImage:[UIImage imageNamed:@"upload_button.png" ] forState:UIControlStateNormal];
+    [selectButton addTarget:self action:@selector(switchToUpload) forControlEvents:UIControlEventTouchUpInside];
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
+    [picker.view addSubview:selectButton];
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    currPicker = picker;
     
     [self presentViewController:picker animated:NO completion:NULL];
 }
@@ -123,22 +130,36 @@
 
 - (IBAction)takePhoto:(UIButton *)sender {
     
+    /*UIButton * selectButton = [[UIButton alloc] initWithFrame:CGRectMake(220, 470, 100,100)];
+    [selectButton setBackgroundImage:[UIImage imageNamed:@"upload_button.png" ] forState:UIControlStateNormal];
+    [selectButton addTarget:self action:@selector(switchToUpload) forControlEvents:UIControlEventTouchUpInside];
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [picker.view addSubview:selectButton];
+    currPicker = pick*/
     
-    [self presentViewController:picker animated:YES completion:NULL];
+    [self presentViewController:currP	icker animated:YES completion:NULL];
 }
 
-- (IBAction)selectPhoto:(UIButton *)sender {
-    
+- (void) switchToUpload {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    //[picker.view addSubview:self.selectButton];
+    [currPicker dismissViewControllerAnimated:NO completion:NULL];
     [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (IBAction)selectPhoto:(UIButton *)sender {
+    [self switchToUpload];
+    /*UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    //[picker.view addSubview:self.selectButton];
+    [self presentViewController:picker animated:YES completion:NULL];*/
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -152,8 +173,12 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
-    [picker dismissViewControllerAnimated:YES completion:NULL];
+    [picker dismissViewControllerAnimated:NO completion:NULL];
+    if(picker.sourceType != UIImagePickerControllerSourceTypeCamera){
+        [self presentViewController:currPicker animated:YES completion:NULL];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     
 }
 
