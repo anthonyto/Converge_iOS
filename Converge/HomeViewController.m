@@ -36,7 +36,7 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-   //[self getEventsJSON];
+   [self getEventsJSON];
 }
 
 - (void)viewDidLoad
@@ -65,11 +65,10 @@
     self.navigationController.navigationBar.translucent = YES;
     self.view.backgroundColor = [UIColor colorWithRed:90/255.0 green:194/255.0 blue:215/255.0 alpha:1];
     spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [spin setColor: [UIColor grayColor]];
     spin.center = CGPointMake(160,240);
     spin.hidesWhenStopped = YES;
     [self.view addSubview:spin];
-    [self getEventsJSON];
+    //[self getEventsJSON];
     footie = [[footerView alloc] initWithFrame:CGRectMake(0, 520, 320, 50)];
     //footie.loginName = [[userInfo userInfo] getInfo].name;
     [self.view addSubview:footie];

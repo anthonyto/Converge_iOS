@@ -187,12 +187,14 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSString * str = [[NSString alloc] initWithData:currData encoding:NSUTF8StringEncoding];
-    if(!str || [str length] <= 0){
+    if(!str || [str length] <= 0 || [str rangeOfString:@"work"].location == NSNotFound){
         [[[UIAlertView alloc] initWithTitle:@"Error"
                                     message:@"Unable to create event."
                                    delegate:nil
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
     }
     [connection cancel];
 /*    NSString *responseText = [[NSString alloc] initWithData:self.data encoding:NSUTF8StringEncoding];
