@@ -46,14 +46,15 @@
     
     spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [spin setColor: [UIColor grayColor]];
-    spin.center = CGPointMake(160,240);
+    spin.center = CGPointMake(160,270);
     spin.hidesWhenStopped = YES;
     [self.view addSubview:spin];
     
     [self navigationItem].title = self.event.name;
     self.noImagesLabel.font = [UIFont fontWithName:font size:self.noImagesLabel.font.pointSize];
     
-    self.collectionView.backgroundColor = [UIColor clearColor];
+    //self.collectionView.backgroundColor = [UIColor clearColor];
+    self.collectionView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
     
     self.descriptionView.editable = NO;
     self.descriptionView.backgroundColor = [UIColor clearColor];
@@ -75,6 +76,7 @@
 }
 
 -(void) retrieveEventInfo{
+    pictures = [[NSMutableArray alloc] init];
     [spin startAnimating];
     NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events/%@", [[userInfo userInfo] getInfo].id, self.event.eventid]];
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
@@ -181,7 +183,6 @@
     return 1;
 }
 - (IBAction)refreshButton:(id)sender {
-    pictures = [[NSMutableArray alloc] init];
     [self retrieveEventInfo];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

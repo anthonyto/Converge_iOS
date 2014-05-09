@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *friendsTable;
 
 - (IBAction)SendInvites:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
 
 
 

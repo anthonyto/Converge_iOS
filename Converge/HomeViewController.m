@@ -45,7 +45,7 @@
     NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
     font = @"Raleway-Light";
     eventList = [[NSMutableData alloc] init];
-    events = [[NSMutableArray alloc] init];
+    //events = [[NSMutableArray alloc] init];
     emptyList = true;
     // begin getting data from the server
     self.eventsTable.layer.cornerRadius = 10;
@@ -67,6 +67,7 @@
     spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     spin.center = CGPointMake(160,240);
     spin.hidesWhenStopped = YES;
+    spin.color = [UIColor grayColor];
     [self.view addSubview:spin];
     //[self getEventsJSON];
     footie = [[footerView alloc] initWithFrame:CGRectMake(0, 520, 320, 50)];
@@ -77,6 +78,7 @@
 }
 
 - (void) getEventsJSON {
+     events = [[NSMutableArray alloc] init];
     [spin startAnimating];
     NSURL *url = [[NSURL alloc] initWithString: [NSString stringWithFormat:@"http://converge-rails.herokuapp.com/api/users/%@/events", [[userInfo userInfo] getInfo].id] ];
     NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
@@ -95,7 +97,6 @@
 }
 
 - (IBAction)refreshEvents:(id)sender {
-    events = [[NSMutableArray alloc] init];
     [self getEventsJSON];
 }
 

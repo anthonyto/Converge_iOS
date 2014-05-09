@@ -35,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.friendsTable.allowsMultipleSelection = YES;
+    
     friends = [[NSArray alloc] init];
 	FBRequest* friendsRequest = [FBRequest requestForMyFriends];
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
@@ -46,9 +48,7 @@
     
     numFriendsInvited = 0;
     InvitedFriends = [[NSMutableDictionary alloc] init];
-    
-    
-
+    self.sendButton.titleLabel.font = [UIFont fontWithName:@"Raleway-Light" size:20];
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,7 +72,14 @@
     if(cell == nil){
         cell = [[FriendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    cell.textLabel.font = [UIFont fontWithName:@"Raleway-Light" size:cell.textLabel.font.pointSize];
     cell.textLabel.text = [[friends objectAtIndex:indexPath.row] objectForKey:@"name"];
+    // Necessary because cells are reused.
+    if(![InvitedFriends objectForKey:[NSString stringWithFormat:@"%d", indexPath.row]]){
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
     cell.friendSelected = NO;
     return cell;
 }

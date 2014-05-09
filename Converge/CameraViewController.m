@@ -53,9 +53,7 @@
     // the boundary string : a random string, that will not repeat in post data, to separate post data fields.
     NSString *BoundaryConstant = @"----------V2ymHFg03ehbqgZCaKO6jy";
     
-    // string constant for the post parameter 'file'. My server uses this name: `file`. Your's may differ
-    //NSString* FileParamConstant = [NSString stringWithString:@"file"];
-    //NSString* FileParamConstant = [NSString stringWithFormat:@"%@.jpg", [[userInfo userInfo] getInfo].id];
+    // string constant for the post parameter 'file'. My server uses this name: `file`. Your's may differß
     NSString* FileParamConstant = @"picture[image]";
     
     // the server url to which the image (or the media) is uploaded. Use your server url here
@@ -101,7 +99,7 @@
     [request setHTTPBody:body];
     
     // set the content-length
-    NSString *postLength = [NSString stringWithFormat:@"%d", [body length]];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[body length]];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     
     // set URL
