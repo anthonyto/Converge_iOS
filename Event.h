@@ -16,5 +16,7 @@
 @property (strong, nonatomic) NSString * start;
 @property (strong, nonatomic) NSString * end;
 @property (strong, nonatomic) NSString * description;
+//@property (strong, nonatomic) NSDate * start_date;
+//@property (strong ,nonatomic) NSDate * end_date;
 
 @end

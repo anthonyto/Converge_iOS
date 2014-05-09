@@ -148,10 +148,12 @@
     Event * currE = ((Event *)[events objectAtIndex:indexPath.row]);
     cell.titleLabel.text = [NSString stringWithFormat:@"%@", currE.name];
     cell.startLabel.text = [NSString stringWithFormat:@"%@", currE.start];
+    cell.endLabel.text = [NSString stringWithFormat:@"%@", currE.end];
     cell.titleLabel.font = [UIFont fontWithName:font size:cell.titleLabel.font.pointSize];
     cell.startLabel.font = [UIFont fontWithName:font size:cell.startLabel.font.pointSize];
-    cell.acceptButton.titleLabel.font = [UIFont fontWithName:font size:15.0];
-    cell.declineButton.titleLabel.font = [UIFont fontWithName:font size:15.0];
+    cell.endLabel.font = [UIFont fontWithName:font size:cell.startLabel.font.pointSize];
+    //cell.acceptButton.titleLabel.font = [UIFont fontWithName:font size:15.0];
+    //cell.declineButton.titleLabel.font = [UIFont fontWithName:font size:15.0];
     return cell;
 }
 
