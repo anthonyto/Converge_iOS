@@ -42,7 +42,7 @@
     [self.view addSubview:spin];
     
     
-    UIButton * selectButton = [[UIButton alloc] initWithFrame:CGRectMake(220, 420, 100,100)];
+    UIButton * selectButton = [[UIButton alloc] initWithFrame:CGRectMake(220, 360, 100,100)];
     [selectButton setBackgroundImage:[UIImage imageNamed:@"upload_button.png" ] forState:UIControlStateNormal];
     [selectButton addTarget:self action:@selector(switchToUpload) forControlEvents:UIControlEventTouchUpInside];
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
