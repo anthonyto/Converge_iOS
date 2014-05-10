@@ -70,8 +70,10 @@
     
     [self.view bringSubviewToFront:self.cameraButton];
     //self.cameraButton.layer.zPosition = 10;
-    self.StartTime.text = self.event.start;
-    self.EndTime.text = self.event.start;
+    self.StartTime.text = [NSString stringWithFormat:@"Start: %@", self.event.start];
+    self.EndTime.text = [NSString stringWithFormat:@"End: %@", self.event.start];
+    self.locationLabel.font = [UIFont fontWithName:font size:16];
+    self.locationLabel.text = self.event.location;
     // Open API call to get array of image urls
     //[self retrieveEventInfo];
 }

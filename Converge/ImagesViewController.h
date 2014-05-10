@@ -30,5 +30,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *noImagesLabel;
 - (IBAction)refreshButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *cameraButton;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 @end
