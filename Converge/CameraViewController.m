@@ -41,6 +41,9 @@
     spin.hidesWhenStopped = YES;
     [self.view addSubview:spin];
     
+    UIButton * cameraButton = [[UIButton alloc] initWithFrame:CGRectMake(160, 400, 100, 100)];
+    [cameraButton setBackgroundImage:[UIImage imageNamed:@"Camera_button.png"] forState:UIControlStateNormal];
+    [cameraButton addTarget:self action:@selector(capturePicture) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton * selectButton = [[UIButton alloc] initWithFrame:CGRectMake(220, 360, 100,100)];
     [selectButton setBackgroundImage:[UIImage imageNamed:@"upload_button.png" ] forState:UIControlStateNormal];
@@ -50,9 +53,14 @@
     picker.allowsEditing = YES;
     [picker.view addSubview:selectButton];
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [picker.view addSubview:cameraButton];
     currPicker = picker;
     
     [self presentViewController:picker animated:NO completion:NULL];
+}
+
+- (void) capturePicture {
+    [currPicker takePicture];
 }
 
 - (void) postImage {
