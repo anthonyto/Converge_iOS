@@ -19,6 +19,10 @@
     UIColor * iosGray;
     NSMutableData * currData;
     footerView *footie;
+    CGFloat tvx;
+    CGFloat tvy;
+    CGFloat tvw;
+    CGFloat tvh;
 }
 
 @end
@@ -65,6 +69,11 @@
     self.eventTitle.delegate = self;
     self.eventLocation.delegate = self;
     self.eventDescription.delegate = self;
+    
+    tvx = self.eventDescription.frame.origin.x;
+    tvy = self.eventDescription.frame.origin.y;
+    tvw = self.eventDescription.frame.size.width;
+    tvh = self.eventDescription.frame.size.height;
     
     footie = [[footerView alloc] initWithFrame:CGRectMake(0, 520, 320, 50)];
     //footie.loginName = [[userInfo userInfo] getInfo].name;
@@ -224,6 +233,7 @@
         textView.text = @"";
         textView.textColor = [UIColor blackColor]; //optional
     }
+    textView.frame = CGRectMake(10, 65, 300, 230);
     [textView becomeFirstResponder];
 }
 - (void)textViewDidEndEditing:(UITextView *)textView {
@@ -231,6 +241,7 @@
         textView.text = @"Description";
         textView.textColor = iosGray; //optional
     }
+    textView.frame = CGRectMake(tvx, tvy, tvw, tvh);
     [textView resignFirstResponder];
 }
 

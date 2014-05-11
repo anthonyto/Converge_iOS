@@ -543,7 +543,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" patternImage="89549E43-317A-4C00-B85E-E5057A1C6D6C" colorSpace="pattern"/>
+                        <color key="backgroundColor" patternImage="F8E747F3-5C89-480A-B139-3A5704FD4C35" colorSpace="pattern"/>
                     </view>
                     <navigationItem key="navigationItem" id="q2N-bi-Yus"/>
                     <connections>
@@ -559,7 +559,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="89549E43-317A-4C00-B85E-E5057A1C6D6C" width="256" height="256">
+        <image name="Camera_button" width="128" height="128"/>
+        <image name="F8E747F3-5C89-480A-B139-3A5704FD4C35" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5001,7 +5002,6 @@ BA6JAAQOkQAEDp4ABA6jAAQOpQAEDqcABA6sAAQOtAAEDrcABA68AAQOxAAEDscABA7ZAAQO3AAEDuEA
 AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
-        <image name="Camera_button" width="128" height="128"/>
         <image name="accept_button" width="128" height="128"/>
         <image name="button_dark" width="125" height="125"/>
         <image name="capture" width="128" height="128"/>
