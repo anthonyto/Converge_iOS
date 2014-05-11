@@ -12,6 +12,8 @@
     NSMutableData * currData;
     UIActivityIndicatorView * spin;
     UIImagePickerController * currPicker;
+    UIButton * select;
+    UIButton * capture;
 }
 
 @end
@@ -41,11 +43,11 @@
     spin.hidesWhenStopped = YES;
     [self.view addSubview:spin];
     
-    UIButton * cameraButton = [[UIButton alloc] initWithFrame:CGRectMake(160, 400, 100, 100)];
-    [cameraButton setBackgroundImage:[UIImage imageNamed:@"Camera_button.png"] forState:UIControlStateNormal];
+    UIButton * cameraButton = [[UIButton alloc] initWithFrame:CGRectMake(120, 491, 80, 80)];
+    [cameraButton setBackgroundImage:[UIImage imageNamed:@"capture.png"] forState:UIControlStateNormal];
     [cameraButton addTarget:self action:@selector(capturePicture) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton * selectButton = [[UIButton alloc] initWithFrame:CGRectMake(220, 360, 100,100)];
+    UIButton * selectButton = [[UIButton alloc] initWithFrame:CGRectMake(240,491, 80,80)];
     [selectButton setBackgroundImage:[UIImage imageNamed:@"upload_button.png" ] forState:UIControlStateNormal];
     [selectButton addTarget:self action:@selector(switchToUpload) forControlEvents:UIControlEventTouchUpInside];
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -54,12 +56,16 @@
     [picker.view addSubview:selectButton];
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     [picker.view addSubview:cameraButton];
+    picker.showsCameraControls= NO;
+    select = selectButton;
+    capture = cameraButton;
     currPicker = picker;
     
     [self presentViewController:picker animated:NO completion:NULL];
 }
 
 - (void) capturePicture {
+    //iselect.hidden = YES;
     [currPicker takePicture];
 }
 
@@ -172,7 +178,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.image = chosenImage;
     self.uploadButton.hidden = NO;
