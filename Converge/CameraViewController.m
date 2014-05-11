@@ -43,16 +43,19 @@
     spin.hidesWhenStopped = YES;
     [self.view addSubview:spin];
     
-    UIButton * cameraButton = [[UIButton alloc] initWithFrame:CGRectMake(120, 491, 80, 80)];
+    UIButton * cameraButton = [[UIButton alloc] initWithFrame:CGRectMake(120, 488, 80, 80)];
     [cameraButton setBackgroundImage:[UIImage imageNamed:@"capture.png"] forState:UIControlStateNormal];
     [cameraButton addTarget:self action:@selector(capturePicture) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton * selectButton = [[UIButton alloc] initWithFrame:CGRectMake(240,491, 80,80)];
+    UIButton * selectButton = [[UIButton alloc] initWithFrame:CGRectMake(240,488, 80,80)];
     [selectButton setBackgroundImage:[UIImage imageNamed:@"upload_button.png" ] forState:UIControlStateNormal];
     [selectButton addTarget:self action:@selector(switchToUpload) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton * cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(5, 480, 200, 16)];
-    cancelButton.titleLabel.text = @"Cancel";
+    UIButton * cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    cancelButton.frame = CGRectMake(0, 520, 70, 25);
+//    cancelButton.titleLabel.text = @"Cancel
+    [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [cancelButton addTarget:self action:@selector(cancelCamera) forControlEvents:UIControlEventTouchUpInside];
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
