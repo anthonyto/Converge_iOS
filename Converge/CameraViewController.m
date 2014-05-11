@@ -50,18 +50,29 @@
     UIButton * selectButton = [[UIButton alloc] initWithFrame:CGRectMake(240,491, 80,80)];
     [selectButton setBackgroundImage:[UIImage imageNamed:@"upload_button.png" ] forState:UIControlStateNormal];
     [selectButton addTarget:self action:@selector(switchToUpload) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton * cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(5, 480, 200, 16)];
+    cancelButton.titleLabel.text = @"Cancel";
+    [cancelButton addTarget:self action:@selector(cancelCamera) forControlEvents:UIControlEventTouchUpInside];
+    
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
     [picker.view addSubview:selectButton];
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     [picker.view addSubview:cameraButton];
+    [picker.view addSubview: cancelButton];
     picker.showsCameraControls= NO;
     select = selectButton;
     capture = cameraButton;
     currPicker = picker;
     
     [self presentViewController:picker animated:NO completion:NULL];
+}
+
+- (void) cancelCamera {
+    [currPicker dismissViewControllerAnimated:NO completion:NULL];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) capturePicture {
